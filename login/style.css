@@ -17,6 +17,17 @@ body {
 
 form {
     text-align: right;
+    direction: rtl;
+}
+
+label {
+    display: block;
+    text-align: right;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    text-align: right;
 }
 
 button {
