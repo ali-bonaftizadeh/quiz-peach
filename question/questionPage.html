@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <title>Quiz Peach</title>
+</head>
+<body class="bg-light">
+
+    <!-- Main Container -->
+    <div class="container border">
+        <div class="content">
+
+        <div class="row">
+          <!-- Sidebar -->
+            <div class="col-3 p-3 border">
+              <div class="d-flex flex-column gap-4">
+              <div class="card">
+                <div class="card-header">
+                  فیلتر‌ها
+                </div>
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                         فیلتر اول
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          فیلتر دوم
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          فیلتر سوم
+                        </label>
+                      </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  فیلتر‌ها
+                </div>
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                         فیلتر اول
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          فیلتر دوم
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          فیلتر سوم
+                        </label>
+                      </div>
+                </div>
+              </div>
+              </div>
+            </div>
+              <!-- Main Content -->
+            <div class="col-9 p-3 border">
+               <div class="d-flex flex-column gap-4">
+
+                <div class="card p-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">عنوان سوال</label>
+                        <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">متن سوال</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="row gap-3">
+                        <div class="col mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">دسته‌بندی</label>
+                            <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                          </div>
+                          <div class="col   mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">سطح سختی</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>آسان</option>
+                                <option value="1">متوسط</option>
+                                <option value="2">دشوار</option>
+                              </select>
+                          </div>
+                    </div>
+
+                    <div class="d-flex gap-2 flex-column">
+                        <label for="exampleFormControlTextarea1" class="form-label">گزینه‌ها</label>
+                        <div class="d-flex align-items-center gap-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                        </div>
+
+                      </div>
+                </div>
+
+                <table class="table bg-white border">
+                  <thead>
+                    <tr>
+                      <th scope="col">عنوان</th>
+                      <th scope="col">سطح سختی</th>
+                      <th scope="col">دسته‌بندی</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>سوال اول</td>
+                      <td>دشوار</td>
+                      <td>دیتابیس</td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>آسان</td>
+                      <td>سیستم عامل</td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>متوسط</td>
+                      <td>شبکه و امنیت</td>
+                    </tr>
+                  </tbody>
+                </table>
+               </div>
+            </div>
+          </div>
+
+          </div>
+    </div>      
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
