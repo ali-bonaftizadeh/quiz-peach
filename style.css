@@ -113,7 +113,7 @@ hr {
 }
 
 .padding {
-    padding: var(--box-padding);
+        padding: var(--box-padding);
 }
 /*#endregion RegionName*/
 
