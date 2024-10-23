@@ -20,6 +20,39 @@
           <!-- Sidebar -->
             <div class="col-3 p-3 border">
               <div class="d-flex flex-column gap-4">
+
+                <div class="custom-box">
+                  <div class="custom-header" data-bs-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="true" aria-controls="filterCollapse">
+                    <span>سختی</span>
+                    <svg class="custom-icon" viewBox="0 0 24 24">
+                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+                    </svg>
+                  </div>
+                  <div class="collapse show" id="filterCollapse">
+                    <hr>
+                    <div class="filter-options">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
+                        <label class="form-check-label" for="easyCheck">
+                          ساده
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
+                        <label class="form-check-label" for="mediumCheck">
+                          متوسط
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
+                        <label class="form-check-label" for="hardCheck">
+                          سخت
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               <div class="card">
                 <div class="card-header">
                   فیلتر‌ها

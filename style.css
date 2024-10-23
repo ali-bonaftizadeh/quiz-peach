@@ -1,7 +1,51 @@
 body {
     font-family: "Vazirmatn", sans-serif;
+    background-color: #f5f8fa;
+    color: #4a5568;
 }
 
 .content {
     margin-top: 6rem;
 }
+
+/* box styles */
+.custom-box {
+    background-color: white;
+    border: .1rem solid #e2e8f0;
+    border-radius: .5rem;
+  }
+  .custom-header {
+    display: flex;
+    padding: 0.6rem .8rem;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .custom-header span {
+    font-weight: 500;
+  }
+  .custom-box hr {
+    margin: 0;
+    border: 1px solid #e2e8f0;
+    opacity: 20%;
+  } 
+  .form-check-input {
+    border-width: .15rem;
+    border-color: #e2e8f0;
+  }
+  .form-check {
+    font-size: 1rem;
+  }
+  .custom-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: currentColor;
+    transition: transform 0.3s;
+  }
+  .collapsed .custom-icon {
+    transform: rotate(180deg);
+  }
+  .filter-options { 
+    padding: 0.5rem .8rem;
+    margin-top: .5rem;
+  }
