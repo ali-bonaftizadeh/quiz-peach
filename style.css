@@ -112,6 +112,9 @@ hr {
     margin-top: var(--filter-margin-top);
 }
 
+.padding {
+    padding: var(--box-padding);
+}
 /*#endregion RegionName*/
 
 
@@ -145,4 +148,11 @@ hr {
     padding: .1rem .7rem;
     border-radius: var(--border-radius);
     font-size: var(--font-smallest);
+}
+
+.difficulty-level {
+    padding: .1rem .7rem;
+    border-radius: var(--border-radius);
+    font-size: var(--font-smallest);
+    color: white;
 }
