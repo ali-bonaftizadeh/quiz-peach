@@ -2,9 +2,9 @@
 
     --border-color: #e2e8f0;
     --border: 0.1rem solid var(--border-color);
-    --font-bold : 500;
+    --font-bold: 500;
     --font-smaller: .95rem;
-    --box-background-color:white;
+    --box-background-color: white;
     --border-radius: 0.4rem;
     --check-border: 0.13rem solid var(--border-color);
 
@@ -19,12 +19,14 @@
     --form-check-font-size: .95rem;
     --filter-margin-top: 0.5rem;
 
-  }
+    --font-normal: 1rem
+}
 
 body {
     font-family: "Vazirmatn", sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
+    font-size: var(--font-normal);
 }
 
 .content {
@@ -33,67 +35,78 @@ body {
 
 /*#region Box styles*/
 
-  .box {
+.box {
     background-color: var(--box-background-color);
     border: var(--border);
     border-radius: var(--border-radius);
-  }
-  
-  .box-header {
+}
+
+.box-header {
     display: flex;
     padding: var(--box-padding);
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-  }
-  
-  .box-header span {
+}
+
+.box-header span {
     font-weight: var(--font-bold);
-    font-size: 1rem;
-  }
-  
-  hr {
+}
+
+hr {
     margin: 0;
     border: var(--border);
-  }
-  
-  .form-check-input {
+}
+
+.form-check-input {
     border: var(--check-border)
-  }
-  
-  .font-smaller {
+}
+
+.font-smaller {
     font-size: var(--font-smaller);
-  }
-  
-  .row-icon {
+}
+
+.row-icon {
     width: var(--icon-size);
     height: var(--icon-size);
     fill: var(--text-color);
     transition: transform var(--icon-transition);
-  }
-  
-  .collapsed .row-icon{
+}
+
+.collapsed .row-icon {
     transform: rotate(180deg);
-  }
-  
-  .filter-options {
+}
+
+.filter-options {
     padding: var(--box-padding);
     margin-top: var(--filter-margin-top);
-  }
+}
+
 /*#endregion RegionName*/
 
 
 /* #region Input styles */
-  .text-input {
+.text-input {
     padding: var(--box-padding);
     border: var(--border);
     font-size: var(--font-smaller);
-  }
-  
-  .button {
+}
+
+.button {
     font-size: var(--font-smaller);
     padding: var(--box-padding);
-  }
+}
+
 /*#endregion RegionName*/
 
+.table thead tr th {
+    color: var(--text-color);
+    border-bottom: none;
+    font-weight: var(--font-bold);
+}
 
+
+.table {
+    font-size: var(--font-smaller);
+    color: var(--text-color);
+}
