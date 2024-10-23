@@ -1,20 +1,23 @@
 :root {
+
+    --border-color: #e2e8f0;
+    --border: 0.1rem solid var(--border-color);
+    --font-bold : 500;
+    --font-smaller: .95rem;
+    --box-background-color:white;
+    --border-radius: 0.4rem;
+    --check-border: 0.13rem solid var(--border-color);
+
     --text-color: #4a5568;
     --background-color: #f5f8fa;
-    --box-background-color:white;
-    --border-color: #e2e8f0;
-    --border-radius: 0.4rem;
+
     --box-padding: 0.6rem 0.8rem;
-    --font-weight: 500;
+
     --icon-size: 1.2rem;
     --icon-transition: 0.3s;
-    --hr-opacity: 20%;
-    --hr-border-width: 1px;
-    --form-check-font-size: .95rem;
-    --form-check-border-width: 0.15rem;
-    --filter-padding: 0.5rem 0.8rem;
-    --filter-margin-top: 0.5rem;
 
+    --form-check-font-size: .95rem;
+    --filter-margin-top: 0.5rem;
 
     --input-border-color: var(--border-color);
     --input-padding: .5rem .8rem;
@@ -22,7 +25,6 @@
     --btn-font-size: .95rem;
     --input-border-radius: var(--border-radius);
   }
-
 
 body {
     font-family: "Vazirmatn", sans-serif;
@@ -36,13 +38,13 @@ body {
 
 /*#region Box styles*/
 
-  .custom-box {
+  .box {
     background-color: var(--box-background-color);
-    border: 0.1rem solid var(--border-color);
+    border: var(--border);
     border-radius: var(--border-radius);
   }
   
-  .custom-header {
+  .box-header {
     display: flex;
     padding: var(--box-padding);
     justify-content: space-between;
@@ -50,38 +52,37 @@ body {
     cursor: pointer;
   }
   
-  .custom-header span {
-    font-weight: var(--font-weight);
+  .box-header span {
+    font-weight: var(--font-bold);
+    font-size: 1rem;
   }
   
-  .custom-box hr {
+  hr {
     margin: 0;
-    border: var(--hr-border-width) solid var(--border-color);
-    opacity: var(--hr-opacity);
+    border: var(--border);
   }
   
   .form-check-input {
-    border-width: var(--form-check-border-width);
-    border-color: var(--border-color);
+    border: var(--check-border)
   }
   
-  .form-check {
-    font-size: var(--form-check-font-size);
+  .font-smaller {
+    font-size: var(--font-smaller);
   }
   
-  .custom-icon {
+  .row-icon {
     width: var(--icon-size);
     height: var(--icon-size);
-    fill: currentColor;
+    fill: var(--text-color);
     transition: transform var(--icon-transition);
   }
   
-  .collapsed .custom-icon {
+  .collapsed .row-icon{
     transform: rotate(180deg);
   }
   
   .filter-options {
-    padding: var(--filter-padding);
+    padding: var(--box-padding);
     margin-top: var(--filter-margin-top);
   }
 /*#endregion RegionName*/
