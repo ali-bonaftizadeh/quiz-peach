@@ -1,196 +1,250 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <title>Quiz Peach</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+  <title>Quiz Peach</title>
 </head>
+
 <body class="bg-light">
 
-    <!-- Main Container -->
-    <div class="container border">
-        <div class="content">
+  <!-- Main Container -->
+  <div class="container border">
+    <div class="content">
 
-        <div class="row">
-          <!-- Sidebar -->
-            <div class="col-3 p-3 border">
-              <div class="d-flex flex-column gap-3">
-                <div class="box">
-                  <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_dificulty" role="button" aria-expanded="true" aria-controls="filterCollapse">
-                    <span>سختی</span>
-                    <svg class="icon" viewBox="0 0 24 24">
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-                    </svg>
-                  </div>
-                  <div class="collapse show" id="filter_collapse_dificulty">
-                    <hr>
-                    <div class="filter-options">
-                      <div class="form-check font-smaller">
-                        <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
-                        <label class="form-check-label" for="easyCheck">
-                          ساده
-                        </label>
-                      </div>
-                      <div class="form-check font-smaller">
-                        <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
-                        <label class="form-check-label" for="mediumCheck">
-                          متوسط
-                        </label>
-                      </div>
-                      <div class="form-check font-smaller">
-                        <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
-                        <label class="form-check-label" for="hardCheck">
-                          سخت
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-3 p-3 border">
+          <div class="d-flex flex-column gap-3">
+            <div class="box">
+              <div class="box-header" data-bs-toggle="switch" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>سوالات من</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 </div>
-
-                <div class="box">
-                  <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_status" role="button" aria-expanded="true" aria-controls="filterCollapse">
-                    <span>وضعیت حل</span>
-                    <svg class="icon" viewBox="0 0 24 24">
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-                    </svg>
-                  </div>
-                  <div class="collapse show" id="filter_collapse_status">
-                    <hr>
-                    <div class="filter-options">
-                      <div class="form-check font-smaller">
-                        <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
-                        <label class="form-check-label" for="easyCheck">
-                          حل شده
-                        </label>
-                      </div>
-                      <div class="form-check font-smaller">
-                        <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
-                        <label class="form-check-label" for="mediumCheck">
-                          حل نشده
-                        </label>
-                      </div>
-                      <div class="form-check font-smaller">
-                        <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
-                        <label class="form-check-label" for="hardCheck">
-                          حل اشتباه
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
-              <!-- Main Content -->
-            <div class="col-9 p-3 border">
-              <div class="d-flex flex-column gap-4">
 
-                <div class="d-flex gap-3 align-items-center">
-                  <input type="text" class="form-control text-input" id="email" placeholder="جستجوی عنوان سوال" name="email">
-                  <button type="button" class="text-nowrap button btn btn-primary">سوال تصادفی</button>
-                  <button type="button" class="text-nowrap button btn btn-primary">سوال جدید</button>
+            <div class="box">
+              <div class="box-header" data-bs-toggle="switch" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>نشان‌شده</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 </div>
-
-                <div class="box">
-                  <div class="list-header">
-                    <svg viewBox="0 0 24 24" focusable="false" class="icon css-1a1hzdl" stroke-width="0" style="transform:scale(-1,1)"><path d="M3,13H15V11H3M3,6V8H21V6M3,18H9V16H3V18Z"></path></svg>
-                    <span class="font-smallest me-2">مرتب‌سازی:</span>
-                    <span class="font-smallest active-item me-2">جدید‌ترین</span>
-                    <span class="font-smallest me-2 inactive-item">قدیمی‌ترین</span>
-                    <span class="font-smallest me-2 inactive-item">بیشترین حل</span>
-                    <span class="font-smallest me-2 inactive-item">محبوب‌ترین</span>
-                  </div>
-                  <hr>
-
-                  <div class="p-3">
-                    
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col" width="50%">عنوان</th>
-                          <th scope="col">سختی</th>
-                          <th scope="col">دسته‌بندی</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>سوال اول</td>
-                          <td>دشوار</td>
-                          <td><div class="d-flex"><span class="hashtag">دیتابیس</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>آسان</td>
-                          <td><div class="d-flex"><span class="hashtag">سیستم عامل</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>متوسط</td>
-                          <td><div class="d-flex"><span class="hashtag">الگوریتم</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>سوال اول</td>
-                          <td>دشوار</td>
-                          <td><div class="d-flex"><span class="hashtag">دیتابیس</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>آسان</td>
-                          <td><div class="d-flex"><span class="hashtag">سیستم عامل</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>متوسط</td>
-                          <td><div class="d-flex"><span class="hashtag">الگوریتم</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>سوال اول</td>
-                          <td>دشوار</td>
-                          <td><div class="d-flex"><span class="hashtag">دیتابیس</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>آسان</td>
-                          <td><div class="d-flex"><span class="hashtag">سیستم عامل</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>متوسط</td>
-                          <td><div class="d-flex"><span class="hashtag">الگوریتم</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>سوال اول</td>
-                          <td>دشوار</td>
-                          <td><div class="d-flex"><span class="hashtag">دیتابیس</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>آسان</td>
-                          <td><div class="d-flex"><span class="hashtag">سیستم عامل</span></div></td>
-                        </tr>
-                        <tr>
-                          <td>عنوان سوال</td>
-                          <td>متوسط</td>
-                          <td><div class="d-flex"><span class="hashtag">الگوریتم</span></div></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-              </div>
               </div>
             </div>
+
+            <div class="box">
+              <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_dificulty" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>سختی</span>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+                </svg>
+              </div>
+              <div class="collapse show" id="filter_collapse_dificulty">
+                <hr>
+                <div class="filter-options">
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
+                    <label class="form-check-label" for="easyCheck">
+                      ساده
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
+                    <label class="form-check-label" for="mediumCheck">
+                      متوسط
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
+                    <label class="form-check-label" for="hardCheck">
+                      سخت
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+            <div class="box">
+              <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>وضعیت حل</span>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+                </svg>
+              </div>
+              <div class="collapse show" id="filter_collapse_status">
+                <hr>
+                <div class="filter-options">
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
+                    <label class="form-check-label" for="easyCheck">
+                      حل شده
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
+                    <label class="form-check-label" for="mediumCheck">
+                      حل نشده
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
+                    <label class="form-check-label" for="hardCheck">
+                      حل اشتباه
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </div>
-    </div>      
+        </div>
+        <!-- Main Content -->
+        <div class="col-9 p-3 border">
+          <div class="d-flex flex-column gap-4">
+
+            <div class="d-flex gap-3 align-items-center">
+              <input type="text" class="form-control text-input" id="email" placeholder="جستجوی عنوان سوال"
+                name="email">
+              <button type="button" class="text-nowrap button btn btn-primary">سوال تصادفی</button>
+              <button type="button" class="text-nowrap button btn btn-primary">سوال جدید</button>
+            </div>
+
+            <div class="box">
+              <div class="list-header">
+                <svg viewBox="0 0 24 24" focusable="false" class="icon css-1a1hzdl" stroke-width="0"
+                  style="transform:scale(-1,1)">
+                  <path d="M3,13H15V11H3M3,6V8H21V6M3,18H9V16H3V18Z"></path>
+                </svg>
+                <span class="font-smallest me-2">مرتب‌سازی:</span>
+                <span class="font-smallest active-item me-2">جدید‌ترین</span>
+                <span class="font-smallest me-2 inactive-item">قدیمی‌ترین</span>
+                <span class="font-smallest me-2 inactive-item">بیشترین حل</span>
+                <span class="font-smallest me-2 inactive-item">محبوب‌ترین</span>
+              </div>
+              <hr>
+
+              <div class="p-3">
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="50%">عنوان</th>
+                      <th scope="col">سختی</th>
+                      <th scope="col">دسته‌بندی</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>سوال اول</td>
+                      <td>دشوار</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">دیتابیس</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>آسان</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">سیستم عامل</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>متوسط</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">الگوریتم</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>سوال اول</td>
+                      <td>دشوار</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">دیتابیس</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>آسان</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">سیستم عامل</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>متوسط</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">الگوریتم</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>سوال اول</td>
+                      <td>دشوار</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">دیتابیس</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>آسان</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">سیستم عامل</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>متوسط</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">الگوریتم</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>سوال اول</td>
+                      <td>دشوار</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">دیتابیس</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>آسان</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">سیستم عامل</span></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>عنوان سوال</td>
+                      <td>متوسط</td>
+                      <td>
+                        <div class="d-flex"><span class="hashtag">الگوریتم</span></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </html>

@@ -80,7 +80,12 @@ hr {
 }
 
 .form-check-input {
-    border: var(--check-border)
+    border: var(--check-border);
+}
+
+.form-switch .form-check-input {
+    height: 1.5rem;
+    width: 2.5rem;
 }
 
 .font-smaller {
