@@ -5,7 +5,7 @@
     --font-bold: 500;
     --font-smaller: .95rem;
     --box-background-color: white;
-    --border-radius: 0.4rem;
+    --border-radius: 0.6rem;
     --check-border: 0.13rem solid var(--border-color);
 
     --text-color: #4a5568;
@@ -16,10 +16,14 @@
     --icon-size: 1.2rem;
     --icon-transition: 0.3s;
 
-    --form-check-font-size: .95rem;
+    --form-check-font-size: .95rem; 
     --filter-margin-top: 0.5rem;
 
-    --font-normal: 1rem
+    --font-normal: 1rem;
+    --font-smallest: .9rem;
+
+    --primary-color: #6824df;
+    --disabled: gray;
 }
 
 body {
@@ -49,6 +53,23 @@ body {
     cursor: pointer;
 }
 
+.list-header {
+    display: flex;
+    padding: var(--box-padding);
+    gap: .7rem;
+}
+
+span + .inactive-item {
+    cursor: pointer;
+    color: var(--disabled);
+}
+
+span + .active-item {
+    cursor: pointer;
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
+}
+
 .box-header span {
     font-weight: var(--font-bold);
 }
@@ -66,7 +87,11 @@ hr {
     font-size: var(--font-smaller);
 }
 
-.row-icon {
+.font-smallest {
+    font-size: var(--font-smallest);
+}
+
+.icon {
     width: var(--icon-size);
     height: var(--icon-size);
     fill: var(--text-color);
@@ -105,8 +130,14 @@ hr {
     font-weight: var(--font-bold);
 }
 
-
 .table {
     font-size: var(--font-smaller);
     color: var(--text-color);
+}
+
+.hashtag {
+    background-color: #EDF2F7;
+    padding: .1rem .7rem;
+    border-radius: var(--border-radius);
+    font-size: var(--font-smallest);
 }
