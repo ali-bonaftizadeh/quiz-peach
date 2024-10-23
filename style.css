@@ -19,11 +19,6 @@
     --form-check-font-size: .95rem;
     --filter-margin-top: 0.5rem;
 
-    --input-border-color: var(--border-color);
-    --input-padding: .5rem .8rem;
-    --btn-padding: 0.6rem 1rem;
-    --btn-font-size: .95rem;
-    --input-border-radius: var(--border-radius);
   }
 
 body {
@@ -89,16 +84,15 @@ body {
 
 
 /* #region Input styles */
-  .custom-input {
-    padding: var(--input-padding);
-    border: 1px solid var(--input-border-color);
-    border-radius: var(--input-border-radius);
-    font-size: var(--form-check-font-size);
+  .text-input {
+    padding: var(--box-padding);
+    border: var(--border);
+    font-size: var(--font-smaller);
   }
   
-  .custom-btn {
-    font-size: var(--btn-font-size);
-    border-radius: var(--input-border-radius);
+  .button {
+    font-size: var(--font-smaller);
+    padding: var(--box-padding);
   }
 /*#endregion RegionName*/
 
