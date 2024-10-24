@@ -1,0 +1,35 @@
+body {
+    font-family: "Vazirmatn", sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+form {
+    text-align: right;
+    direction: rtl;
+}
+
+label {
+    display: block;
+    text-align: right;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    text-align: right;
+}
+
+button {
+    font-weight: 600;
+}
