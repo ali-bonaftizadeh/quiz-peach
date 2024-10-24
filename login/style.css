@@ -10,10 +10,11 @@ body {
     height: 100vh;
 }
 
-.login-box {
+.limited-box {
     width: 100%;
     max-width: 400px;
 }
+
 
 form {
     text-align: right;

@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
     <title>Login & Sign Up</title>
 </head>
-<body class="bg-light">
+<body>
 
     <!-- Main Container -->
     <div class="container">
-        <div class="login-box mx-auto border rounded p-4 bg-white shadow">
-            <ul class="nav nav-tabs mb-4" id="authTab" role="tablist">
+        <div class="limited-box">
+            <ul class="nav nav-tabs nav-fill" id="authTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">ورود</button>
                 </li>
@@ -27,43 +28,42 @@
             <div class="tab-content" id="authTabContent">
                 <!-- Login Form -->
                 <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                    <h2 class="text-center mb-4">ورود به سیستم</h2>
                     <form>
                         <div class="mb-3">
                             <label for="login-email" class="form-label">ایمیل</label>
-                            <input type="email" class="form-control" id="login-email" placeholder="ایمیل خود را وارد کنید" required>
+                            <input type="email" class="form-control text-input" id="login-email" placeholder="ایمیل خود را وارد کنید" required>
                         </div>
                         <div class="mb-3">
                             <label for="login-password" class="form-label">رمز عبور</label>
-                            <input type="password" class="form-control" id="login-password" placeholder="رمز عبور خود را وارد کنید" required>
+                            <input type="password" class="form-control text-input" id="login-password" placeholder="رمز عبور خود را وارد کنید" required>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">ورود</button>
+                        <button type="submit" class="button btn btn-primary w-100">ورود</button>
                     </form>
                 </div>
-
+                
                 <!-- Sign Up Form -->
                 <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-                    <h2 class="text-center mb-4">ثبت‌نام</h2>
                     <form>
                         <div class="mb-3">
                             <label for="signup-name" class="form-label">نام کامل</label>
-                            <input type="text" class="form-control" id="signup-name" placeholder="نام کامل خود را وارد کنید" required>
+                            <input type="text" class="form-control text-input" id="signup-name" placeholder="نام کامل خود را وارد کنید" required>
                         </div>
                         <div class="mb-3">
                             <label for="signup-email" class="form-label">ایمیل</label>
-                            <input type="email" class="form-control" id="signup-email" placeholder="ایمیل خود را وارد کنید" required>
+                            <input type="email" class="form-control " id="signup-email" placeholder="ایمیل خود را وارد کنید" required>
                         </div>
                         <div class="mb-3">
                             <label for="signup-password" class="form-label">رمز عبور</label>
-                            <input type="password" class="form-control" id="signup-password" placeholder="رمز عبور خود را وارد کنید" required>
+                            <input type="password" class="form-control text-input" id="signup-password" placeholder="رمز عبور خود را وارد کنید" required>
                         </div>
                         <div class="mb-3">
                             <label for="signup-confirm-password" class="form-label">تایید رمز عبور</label>
-                            <input type="password" class="form-control" id="signup-confirm-password" placeholder="رمز عبور خود را مجددا وارد کنید" required>
+                            <input type="password" class="form-control text-input" id="signup-confirm-password" placeholder="رمز عبور خود را مجددا وارد کنید" required>
                         </div>
-                        <button type="submit" class="btn btn-success w-100">ثبت‌نام</button>
+                        <button type="submit" class="button btn btn-success w-100">ثبت‌نام</button>
                     </form>
                 </div>
+            </div>
             </div>
         </div>
     </div>

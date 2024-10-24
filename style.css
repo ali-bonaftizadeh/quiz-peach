@@ -3,6 +3,7 @@
     --border-color: #e2e8f0;
     --border: 0.1rem solid var(--border-color);
     --font-bold: 500;
+    --font-black: 800;
     --font-smaller: .95rem;
     --box-background-color: white;
     --border-radius: 0.6rem;
@@ -12,6 +13,7 @@
     --background-color: #f5f8fa;
 
     --box-padding: 0.6rem 0.8rem;
+    --box-padding-large: 1.5rem;
 
     --icon-size: 1.2rem;
     --icon-transition: 0.3s;
@@ -21,6 +23,7 @@
 
     --font-normal: 1rem;
     --font-smallest: .9rem;
+    --font-largest: 2rem;
 
     --primary-color: #6824df;
     --disabled: gray;
@@ -36,6 +39,7 @@ body {
 .content {
     margin-top: 6rem;
 }
+
 
 /*#region Box styles*/
 
@@ -73,6 +77,11 @@ span + .active-item {
 .box-header span {
     font-weight: var(--font-bold);
 }
+
+.big-title {
+    font-size: var(--font-largest);
+    font-weight: var(--font-black);
+} 
 
 hr {
     margin: 0;
@@ -158,4 +167,16 @@ hr {
     border-radius: var(--border-radius);
     font-size: var(--font-smallest);
     color: white;
+}
+
+
+/* Login page */
+.tab-content {
+    padding: var(--box-padding-large);
+    background-color: var(--box-background-color);
+    border-end-end-radius: var(--border-radius);
+    border-end-start-radius: var(--border-radius);
+    border-bottom: var(--border);
+    border-left: var(--border);
+    border-right: var(--border);
 }
