@@ -138,6 +138,9 @@ hr {
     font-weight: var(--font-bold);
 }
 
+.table tbody tr:last-child {
+    border-bottom: hidden;
+}
 .table {
     font-size: var(--font-smaller);
     color: var(--text-color);
