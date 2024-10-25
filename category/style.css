@@ -1,76 +1,173 @@
-/* Gradient Background */
-body.bg-gradient {
+:root {
+    --border-color: #e2e8f0;
+    --border: 0.1rem solid var(--border-color);
+    --font-bold: 500;
+    --font-smaller: .95rem;
+    --box-background-color: white;
+    --border-radius: 0.6rem;
+    --check-border: 0.13rem solid var(--border-color);
+
+    --text-color: #4a5568;
+    --background-color: #f5f8fa;
+
+    --box-padding: 0.6rem 0.8rem;
+
+    --icon-size: 1.2rem;
+    --icon-transition: 0.3s;
+
+    --form-check-font-size: .95rem; 
+    --filter-margin-top: 0.5rem;
+
+    --font-normal: 1rem;
+    --font-smallest: .9rem;
+
+    --primary-color: #6824df;
+    --disabled: gray;
+}
+
+body {
     font-family: "Vazirmatn", sans-serif;
-    background: linear-gradient(135deg, #eef3f5, #d8e6ec, #cbdde3);
-    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: var(--font-normal);
+}
+
+.content {
+    margin-top: 6rem;
+}
+
+/*#region Box styles*/
+
+.box {
+    background-color: var(--box-background-color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.box-header {
     display: flex;
+    padding: var(--box-padding);
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    font-weight: var(--font-bold);
 }
 
-/* Page Heading */
-.container h1 {
-    font-weight: bold;
-    color: #333;
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Slightly Darker Category Card Styling with Glassmorphism Effect */
-.category-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 245, 250, 0.9));
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 2rem;
+.list-header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: var(--box-padding);
+    gap: .7rem;
+    font-size: var(--font-smallest);
+    font-weight: var(--font-bold);
 }
 
-/* Darker Pastel Colors for Each Category */
-.category-card:nth-child(1) { background: linear-gradient(135deg, #f2e5e5, #e8dcdc); }
-.category-card:nth-child(2) { background: linear-gradient(135deg, #e9e2f7, #e0dbf4); }
-.category-card:nth-child(3) { background: linear-gradient(135deg, #dff7e6, #d1f0db); }
-.category-card:nth-child(4) { background: linear-gradient(135deg, #e4effd, #d7e8f9); }
-.category-card:nth-child(5) { background: linear-gradient(135deg, #f2f0f7, #e3e0ed); }
-.category-card:nth-child(6) { background: linear-gradient(135deg, #f8e9d1, #f4debf); }
-.category-card:nth-child(7) { background: linear-gradient(135deg, #f4efea, #e8e0db); }
-
-.category-card:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+span + .inactive-item {
+    cursor: pointer;
+    color: var(--disabled);
 }
 
-.category-logo img {
-    max-width: 60px;
-    height: auto;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+span + .active-item {
+    cursor: pointer;
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
 }
 
-.category-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-    margin-top: 1rem;
+hr {
+    margin: 0;
+    border: var(--border);
 }
 
-/* Add New Category Button Styling */
-.add-category-btn {
-    border: 2px dashed #007bff;
-    font-weight: bold;
-    color: #007bff;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 15px;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.form-check-input {
+    border: var(--check-border);
 }
 
-.add-category-btn:hover {
-    background-color: #007bff;
-    color: #fff;
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.form-switch .form-check-input {
+    height: 1.5rem;
+    width: 2.5rem;
+}
+
+.font-smaller {
+    font-size: var(--font-smaller);
+}
+
+.font-smallest {
+    font-size: var(--font-smallest);
+}
+
+.icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    fill: var(--text-color);
+    transition: transform var(--icon-transition);
+}
+
+.collapsed .row-icon {
+    transform: rotate(180deg);
+}
+
+.filter-options {
+    padding: var(--box-padding);
+    margin-top: var(--filter-margin-top);
+}
+
+.padding {
+    padding: var(--box-padding);
+}
+
+/* #region Input styles */
+.text-input {
+    padding: var(--box-padding);
+    border: var(--border);
+    font-size: var(--font-smaller);
+}
+
+.button {
+    font-size: var(--font-smaller);
+    padding: var(--box-padding);
+}
+
+/* Table Styling */
+.table thead tr th {
+    color: var(--text-color);
+    border-bottom: none;
+    font-weight: var(--font-bold);
+}
+
+.table tbody tr:last-child {
+    border-bottom: hidden;
+}
+
+.table {
+    font-size: var(--font-smaller);
+    color: var(--text-color);
+}
+
+.list-group-item {
+    cursor: pointer;
+    font-size: var(--font-smaller);
+    padding: .6rem .8rem;
+    background-color: var(--box-background-color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    margin-bottom: .5rem;
+    color: var(--text-color);
+}
+
+.list-group-item:hover {
+    background-color: #f0f5ff;
+    color: var(--primary-color);
+}
+
+/* Tag Styling */
+.hashtag {
+    background-color: #EDF2F7;
+    padding: .1rem .7rem;
+    border-radius: var(--border-radius);
+    font-size: var(--font-smallest);
+}
+
+.difficulty-level {
+    padding: .1rem .7rem;
+    border-radius: var(--border-radius);
+    font-size: var(--font-smallest);
+    color: white;
 }
