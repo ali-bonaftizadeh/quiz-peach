@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
     integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
@@ -21,13 +21,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" href="../index.html" aria-current="page">صفحه اصلی</a>
+            <a class="nav-link" href="index.html">صفحه اصلی</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../tags.html">مدیریت دسته‌بندی‌ها</a>
+            <a class="nav-link active" href="#" aria-current="page">مدیریت دسته‌بندی‌ها</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../ranking.html">جدول امتیازات</a>
+            <a class="nav-link" href="ranking.html">جدول امتیازات</a>
           </li>
         </ul>
       </div>
@@ -35,7 +35,7 @@
       <!-- Left side: User profile -->
       <div class="d-flex align-items-center">
         <span class="me-2">بازیکن فعلی</span>
-        <img src="../resources/p-1.png" alt="User Image" width="40" height="40" class="rounded-circle">
+        <img src="resources/p-1.png" alt="User Image" width="40" height="40" class="rounded-circle">
       </div>
 
       <!-- Navbar Toggler for responsive design -->
@@ -51,73 +51,104 @@
 
       <div class="row">
         <!-- Sidebar -->
-        <div class="col-2">
-        </div>
-
-        <!-- Main Content -->
-        <div class="col-8 p-3">
-          <div class="d-flex flex-column gap-4">
-
-            <div class="box p-3">
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">عنوان سوال</label>
-                <input class="text-input form-control" id="exampleFormControlTextarea1"
-                  placeholder="عنوان مورد نظرتان را وارد کنید ..." rows="3"></input>
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">متن سوال</label>
-                <textarea class="text-input form-control" id="exampleFormControlTextarea1"
-                  placeholder="صورت سوال را در این بخش بنویسید ..." rows="8"></textarea>
-              </div>
-              <div class="row gap-3">
-                <div class="col mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">دسته‌بندی</label>
-                  <input class="text-input form-control" id="exampleFormControlTextarea1"
-                    placeholder="یک دسته‌بندی را وارد نمایید" rows="1"></input>
-                </div>
-                <div class="col mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">سطح سختی</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>آسان</option>
-                    <option value="1">متوسط</option>
-                    <option value="2">دشوار</option>
-                  </select>
+        <div class="col-3 p-3 border">
+          <div class="d-flex flex-column gap-3">
+            <div class="box">
+              <div class="box-header" data-bs-toggle="switch" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>سوالات من</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 </div>
               </div>
-
-              <div class="d-flex gap-2 flex-column">
-                <label for="exampleFormControlTextarea1" class="form-label">گزینه‌ها
-                  <span class="font-smallest inactive-item ms-2">(گزینه صحیح را انتخاب نمایید)</span></label>
-
-                <div class="d-flex align-items-center gap-3">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
-                </div>
-
-                <div class="d-flex gap-3 mt-3">
-                  <button type="button" class="text-nowrap button btn btn-success">ساخت سوال جدید</button>
-                  <button type="button" class="text-nowrap button btn btn-danger">بازنشانی تمام فیلد‌ها</button>
-                </div>
-              </div>
-
             </div>
 
-            <h1 class="big-title">سوالات مشابه</h1>
+            <div class="box">
+              <div class="box-header" data-bs-toggle="switch" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>نشان‌شده</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_dificulty" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>سختی</span>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+                </svg>
+              </div>
+              <div class="collapse show" id="filter_collapse_dificulty">
+                <hr>
+                <div class="filter-options">
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
+                    <label class="form-check-label" for="easyCheck">
+                      ساده
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
+                    <label class="form-check-label" for="mediumCheck">
+                      متوسط
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
+                    <label class="form-check-label" for="hardCheck">
+                      سخت
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>وضعیت حل</span>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+                </svg>
+              </div>
+              <div class="collapse show" id="filter_collapse_status">
+                <hr>
+                <div class="filter-options">
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="EZ" id="easyCheck">
+                    <label class="form-check-label" for="easyCheck">
+                      حل شده
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="MED" id="mediumCheck">
+                    <label class="form-check-label" for="mediumCheck">
+                      حل نشده
+                    </label>
+                  </div>
+                  <div class="form-check font-smaller">
+                    <input class="form-check-input" type="checkbox" value="HARD" id="hardCheck">
+                    <label class="form-check-label" for="hardCheck">
+                      حل اشتباه
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div class="col-9 p-3 border">
+          <div class="d-flex flex-column gap-3">
+
             <div class="d-flex gap-3 align-items-center">
               <input type="text" class="form-control text-input" id="email" placeholder="جستجوی عنوان سوال"
                 name="email">
+              <button type="button" class="text-nowrap button btn btn-primary">سوال تصادفی</button>
+              <button type="button" class="text-nowrap button btn btn-primary">سوال جدید</button>
             </div>
 
             <div class="box">
@@ -139,7 +170,6 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col" width="1%"> </th>
                       <th scope="col" width="50%">عنوان</th>
                       <th scope="col">سختی</th>
                       <th scope="col">دسته‌بندی</th>
@@ -147,9 +177,6 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>سوال اول</td>
                       <td>دشوار</td>
                       <td>
@@ -157,9 +184,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>آسان</td>
                       <td>
@@ -167,9 +191,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>متوسط</td>
                       <td>
@@ -177,9 +198,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>سوال اول</td>
                       <td>دشوار</td>
                       <td>
@@ -187,9 +205,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>آسان</td>
                       <td>
@@ -197,9 +212,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>متوسط</td>
                       <td>
@@ -207,9 +219,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>سوال اول</td>
                       <td>دشوار</td>
                       <td>
@@ -217,9 +226,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>آسان</td>
                       <td>
@@ -227,9 +233,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>متوسط</td>
                       <td>
@@ -237,9 +240,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>سوال اول</td>
                       <td>دشوار</td>
                       <td>
@@ -247,9 +247,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>آسان</td>
                       <td>
@@ -257,9 +254,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" role="switch">
-                      </td>
                       <td>عنوان سوال</td>
                       <td>متوسط</td>
                       <td>
@@ -272,17 +266,14 @@
             </div>
           </div>
         </div>
-
-
-        <div class="col-2">
-        </div>
-
       </div>
     </div>
 
+  </div>
+  </div>
+
 
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
