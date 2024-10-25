@@ -1,0 +1,76 @@
+/* Gradient Background */
+body.bg-gradient {
+    font-family: "Vazirmatn", sans-serif;
+    background: linear-gradient(135deg, #eef3f5, #d8e6ec, #cbdde3);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Page Heading */
+.container h1 {
+    font-weight: bold;
+    color: #333;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Slightly Darker Category Card Styling with Glassmorphism Effect */
+.category-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 245, 250, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Darker Pastel Colors for Each Category */
+.category-card:nth-child(1) { background: linear-gradient(135deg, #f2e5e5, #e8dcdc); }
+.category-card:nth-child(2) { background: linear-gradient(135deg, #e9e2f7, #e0dbf4); }
+.category-card:nth-child(3) { background: linear-gradient(135deg, #dff7e6, #d1f0db); }
+.category-card:nth-child(4) { background: linear-gradient(135deg, #e4effd, #d7e8f9); }
+.category-card:nth-child(5) { background: linear-gradient(135deg, #f2f0f7, #e3e0ed); }
+.category-card:nth-child(6) { background: linear-gradient(135deg, #f8e9d1, #f4debf); }
+.category-card:nth-child(7) { background: linear-gradient(135deg, #f4efea, #e8e0db); }
+
+.category-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-logo img {
+    max-width: 60px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.category-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 1rem;
+}
+
+/* Add New Category Button Styling */
+.add-category-btn {
+    border: 2px dashed #007bff;
+    font-weight: bold;
+    color: #007bff;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-category-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
