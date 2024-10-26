@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+  <title>برچسب‌ها</title>
+</head>
+
+<body class="bg-light">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container container-fluid">
+    <!-- Right side: Menu items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" aria-current="page">مدیریت دسته‌بندی‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../ranking.html">جدول امتیازات</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Left side: User profile -->
+    <div class="d-flex align-items-center">
+      <span class="me-2">بازیکن فعلی</span>
+      <img src="../resources/p-1.png" alt="User Image" width="40" height="40" class="rounded-circle">
+    </div>
+
+    <!-- Navbar Toggler for responsive design -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+  <!-- Main Container -->
+  <div class="container border">
+    <div class="content">
+
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-3 p-3 border">
+          <div class="d-flex flex-column gap-3">
+            <div class="box">
+              <div class="box-header" data-bs-toggle="switch" href="#filter_collapse_status" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>برچسب‌ها</span>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="box-header" data-bs-toggle="collapse" href="#filter_collapse_tags" role="button"
+                aria-expanded="true" aria-controls="filterCollapse">
+                <span>برچسب‌های موجود</span>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+                </svg>
+              </div>
+              <div class="collapse show" id="filter_collapse_tags">
+                <hr>
+                <div class="filter-options">
+                  <div class="list-group">
+                    <div class="list-group-item">سینما</div>
+                    <div class="list-group-item">ادبیات</div>
+                    <div class="list-group-item">موسیقی</div>
+                    <div class="list-group-item">تاریخ</div>
+                    <div class="list-group-item">تکنولوژی</div>
+                    <div class="list-group-item">اطلاعات عمومی</div>
+                    <div class="list-group-item">ورزشی</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div class="col-9 p-3 border">
+          <div class="d-flex flex-column gap-3">
+
+            <div class="d-flex gap-3 align-items-center">
+              <input type="text" class="form-control text-input" id="email" placeholder="جستجوی برچسب"
+                name="email">
+            </div>
+
+            <div class="box">
+              <div class="list-header">
+                <svg viewBox="0 0 24 24" focusable="false" class="icon css-1a1hzdl" stroke-width="0"
+                  style="transform:scale(-1,1)">
+                  <path d="M3,13H15V11H3M3,6V8H21V6M3,18H9V16H3V18Z"></path>
+                </svg>
+                <span class="font-smallest me-2">مرتب‌سازی:</span>
+                <span class="font-smallest active-item me-2">جدید‌ترین</span>
+                <span class="font-smallest me-2 inactive-item">قدیمی‌ترین</span>
+                <span class="font-smallest me-2 inactive-item">محبوب‌ترین</span>
+              </div>
+              <hr>
+
+              <div class="p-3">
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="50%">برچسب</th>
+                      <th scope="col">تعداد سوالات</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>سینما</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <td>ادبیات</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>موسیقی</td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>تاریخ</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <td>تکنولوژی</td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>اطلاعات عمومی</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>ورزشی</td>
+                      <td>9</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>
