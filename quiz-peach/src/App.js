@@ -1,12 +1,13 @@
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button } from '@mui/material';
+import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip } from '@mui/material';
 import FiltersBox from './components/FiltersBox'
 import ToggleBox from './components/ToggleBox';
 import BasicTable from './components/Table'
-import Label from './components/Label'
 import { column } from 'stylis';
-import RTL from './layout/RTL'
+import SummaryBox from './components/SummaryBox';
+import Similars from './components/Similars';
+
 const theme = createTheme({
   direction: 'rtl',
   typography: {
@@ -15,10 +16,10 @@ const theme = createTheme({
 });
 
 function App() {
+  document.body.setAttribute("dir", "rtl");
+  
   return (
     <ThemeProvider theme={theme}>
-      <RTL>
-
       <CssBaseline />
       <div className="App">
         <Container>
@@ -27,6 +28,10 @@ function App() {
           <Grid2 container spacing={2}>
             <Grid2 container size={{ sm: 12, md: 3 }}>
               <Stack sx={{ width: '100%' }} spacing={2}>
+                <SummaryBox title="قرابت معکوس"></SummaryBox>
+                <Similars title="از همین طراح">
+                  <Typography>here is a test</Typography>
+                </Similars>
                 <ToggleBox title="سوالات من"></ToggleBox>
                 <ToggleBox title="نشان‌شده‌ها"></ToggleBox>
                 <FiltersBox title="درجه سختی" options={["ساده", "دشوار", "متوسط"]}></FiltersBox>
@@ -45,7 +50,7 @@ function App() {
                 columns: [
                   <Typography>قرابت معکوس</Typography>,
                   <Typography>دشوار</Typography>,
-                  <Label value="ادبیات"></Label>                    
+                  <Chip label="ادبیات"></Chip>                    
                 ]
               },
               {
@@ -53,7 +58,7 @@ function App() {
                 columns: [
                   <Typography>قرابت معکوس</Typography>,
                   <Typography>دشوار</Typography>,
-                  <Label value="ادبیات"></Label>   
+                  <Chip label="ادبیات"></Chip>   
                 ]
               }
                 
@@ -65,8 +70,6 @@ function App() {
         </Container>
 
       </div>
-      </RTL>
-
     </ThemeProvider>
   );
 }
