@@ -25,7 +25,7 @@ const FiltersBox = ({title, options}) => {
             {
                 options.map(option => {
                     return (
-                        <FormControlLabel sx={{m:0}} control={<Checkbox/>} label={option} />
+                        <FormControlLabel key={option} sx={{m:0}} control={<Checkbox/>} label={option} />
                     )
                 })
             }
