@@ -4,11 +4,12 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 export default function BasicTable({titles, rows}) {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             {
                 titles.map(title => {
+                    console.log(title);
                     return (<TableCell key={title} align='right'>{title}</TableCell>);
                 })
             }
