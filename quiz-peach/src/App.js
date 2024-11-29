@@ -6,7 +6,7 @@ import ToggleBox from './components/ToggleBox';
 import BasicTable from './components/Table'
 import Label from './components/Label'
 import { column } from 'stylis';
-
+import RTL from './layout/RTL'
 const theme = createTheme({
   direction: 'rtl',
   typography: {
@@ -17,6 +17,8 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <RTL>
+
       <CssBaseline />
       <div className="App">
         <Container>
@@ -63,6 +65,8 @@ function App() {
         </Container>
 
       </div>
+      </RTL>
+
     </ThemeProvider>
   );
 }
