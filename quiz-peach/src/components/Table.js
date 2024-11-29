@@ -9,7 +9,6 @@ export default function BasicTable({titles, rows}) {
           <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             {
                 titles.map(title => {
-                    console.log(title);
                     return (<TableCell key={title} align='right'>{title}</TableCell>);
                 })
             }
@@ -23,7 +22,7 @@ export default function BasicTable({titles, rows}) {
             return (
               <TableRow
                 key={row.key}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
               >
                  {row.columns.map(c => (<TableCell key={c} align="right">{c}</TableCell>))}
               </TableRow>

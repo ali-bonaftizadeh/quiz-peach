@@ -7,6 +7,7 @@ import BasicTable from './components/Table'
 import { column } from 'stylis';
 import SummaryBox from './components/SummaryBox';
 import Similars from './components/Similars';
+import QuestionView from './components/QuestionView';
 
 const theme = createTheme({
   direction: 'rtl',
@@ -45,6 +46,14 @@ function App() {
                 <Button variant="contained">سوال جدید</Button>
                 <Button variant="outlined">ساخت سوال جدید</Button>
               </Stack>
+
+              <QuestionView question="متن زیر با کدام بیت قرابت معنایی دارد؟
+«او بنده خود را عاشق خود کند، آنگاه بر بنده عاشق باشد.» " options={[
+                " غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را",
+                "حسنت به اتفاق ملاحت جهان گرفت  /  آری به اتفاق جهان می‌توان گرفت",
+                "در ازل پرتو حسنت ز تجلی دم زد / عشق پیدا شد و آتش به همه عالم زد",
+                " غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را"
+              ]}></QuestionView>
               <BasicTable titles={["عنوان سوال", "سختی", "دسته‌بندی"]} rows={[ {
                 key: 'temp',
                 columns: [
