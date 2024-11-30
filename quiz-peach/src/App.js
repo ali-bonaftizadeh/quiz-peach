@@ -8,6 +8,7 @@ import SummaryBox from './components/SummaryBox';
 import Similars from './components/Similars';
 import QuestionView from './components/QuestionView';
 import Editor from './components/MarkdownEditor';
+import CreateQuestion from './layout/CreateQuestion';
 
 const theme = createTheme({
   direction: 'rtl',
