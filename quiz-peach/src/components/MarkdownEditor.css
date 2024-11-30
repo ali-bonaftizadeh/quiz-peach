@@ -1,0 +1,19 @@
+.md-editor-preview > * {
+    text-align: right;
+font-family: 'Vazirmatn';
+
+}
+
+code {
+    direction: ltr;
+    text-align: left;
+}
+
+.wmde-markdown {
+    text-align: right;
+    font-family: 'Vazirmatn';
+}
+.cm-content {
+    text-align: right;
+font-family: 'Vazirmatn';
+}
