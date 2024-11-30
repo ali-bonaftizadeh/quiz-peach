@@ -4,10 +4,10 @@ import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Butto
 import FiltersBox from './components/FiltersBox'
 import ToggleBox from './components/ToggleBox';
 import BasicTable from './components/Table'
-import { column } from 'stylis';
 import SummaryBox from './components/SummaryBox';
 import Similars from './components/Similars';
 import QuestionView from './components/QuestionView';
+import Editor from './components/MarkdownEditor';
 
 const theme = createTheme({
   direction: 'rtl',
@@ -46,6 +46,9 @@ function App() {
                 <Button variant="contained">سوال جدید</Button>
                 <Button variant="outlined">ساخت سوال جدید</Button>
               </Stack>
+
+		  <Editor></Editor>
+
 
               <QuestionView question="متن زیر با کدام بیت قرابت معنایی دارد؟
 «او بنده خود را عاشق خود کند، آنگاه بر بنده عاشق باشد.» " options={[
