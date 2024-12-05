@@ -1,6 +1,6 @@
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip } from '@mui/material';
+import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip, getContrastRatio } from '@mui/material';
 import FiltersBox from './components/FiltersBox'
 import ToggleBox from './components/ToggleBox';
 import BasicTable from './components/Table'
@@ -9,11 +9,35 @@ import Similars from './components/Similars';
 import QuestionView from './components/QuestionView';
 import Editor from './components/MarkdownEditor';
 import CreateQuestion from './layout/CreateQuestion';
+import { dark } from '@mui/material/styles/createPalette';
+
+const paleteTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    borderColor: {
+      main: '#e2e8f0',
+      light: '#e2e8f0',
+      dark: '#e2e8f0',
+      contrastText: getContrastRatio('#e2e8f0', '#fff') > 4.5 ? '#fff' : '#111',
+    },
+  }
+})
 
 const theme = createTheme({
   direction: 'rtl',
   typography: {
     fontFamily: 'Vazirmatn'
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+          border: `0.1rem solid ${paleteTheme.palette.borderColor.main}`,
+          borderRadius: '0.6rem'
+        }
+      }
+    }
   }
 });
 
@@ -21,6 +45,7 @@ function App() {
   document.body.setAttribute("dir", "rtl");
   
   return (
+    <ThemeProvider theme={paleteTheme}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
@@ -86,7 +111,8 @@ function App() {
         </Container>
 
       </div>
-    </ThemeProvider>
+      </ThemeProvider>
+      </ThemeProvider>
   );
 }
 
