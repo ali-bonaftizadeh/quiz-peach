@@ -11,9 +11,13 @@ import Editor from './components/MarkdownEditor';
 import CreateQuestion from './layout/CreateQuestion';
 import { dark } from '@mui/material/styles/createPalette';
 
-const paleteTheme = createTheme({
+let theme = createTheme({
+  direction: 'rtl',
+  typography: {
+    fontFamily: 'Vazirmatn'
+  },
   palette: {
-    mode: 'dark',
+    mode: 'light',
     borderColor: {
       main: '#e2e8f0',
       light: '#e2e8f0',
@@ -23,17 +27,13 @@ const paleteTheme = createTheme({
   }
 })
 
-const theme = createTheme({
-  direction: 'rtl',
-  typography: {
-    fontFamily: 'Vazirmatn'
-  },
+theme = createTheme(theme, {
   components: {
     MuiCard: {
       styleOverrides: {
         root: {
           boxShadow: 'none',
-          border: `0.1rem solid ${paleteTheme.palette.borderColor.main}`,
+          border: `0.1rem solid ${theme.palette.borderColor.main}`,
           borderRadius: '0.6rem'
         }
       }
@@ -45,7 +45,7 @@ function App() {
   document.body.setAttribute("dir", "rtl");
   
   return (
-    <ThemeProvider theme={paleteTheme}>
+    // <ThemeProvider theme={paleteTheme}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
@@ -112,7 +112,7 @@ function App() {
 
       </div>
       </ThemeProvider>
-      </ThemeProvider>
+      // </ThemeProvider>
   );
 }
 
