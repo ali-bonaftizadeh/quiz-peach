@@ -25,7 +25,9 @@ function App() {
       <CssBaseline />
       <div className="App">
         <Container>
+          
           <Box sx={{ m: 5 }}></Box> {/* only for test*/}
+          <CreateQuestion></CreateQuestion>
 
           <Grid2 container spacing={2}>
             <Grid2 container size={{ sm: 12, md: 3 }}>
@@ -58,6 +60,7 @@ function App() {
                 "در ازل پرتو حسنت ز تجلی دم زد / عشق پیدا شد و آتش به همه عالم زد",
                 " غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را"
               ]}></QuestionView>
+              
               <BasicTable titles={["عنوان سوال", "سختی", "دسته‌بندی"]} rows={[ {
                 key: 'temp',
                 columns: [

@@ -1,6 +1,8 @@
 import Editor from '../components/MarkdownEditor';
-import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip, Card } from '@mui/material';
+import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip, Card, Checkbox } from '@mui/material';
 import { Autocomplete, MenuItem, FormControl, Select, InputLabel } from '@mui/material';
+import QuestionOptions from './QuestionOptions';
+import BasicTable from '../components/Table';
 
 
 const CreateQuestion = () => {
@@ -35,7 +37,7 @@ const CreateQuestion = () => {
 
           <Grid2 container spacing={2}>
             <Grid2 size={6}>
-            <Typography variant="body1">دسته‌بندی</Typography>
+              <Typography variant="body1">دسته‌بندی</Typography>
               <Autocomplete
                 options={categories}
                 renderInput={(params) => (
@@ -44,8 +46,8 @@ const CreateQuestion = () => {
               />
             </Grid2>
             <Grid2 size={6}>
-            
-            <Typography variant="body1">سطح سختی</Typography>
+
+              <Typography variant="body1">سطح سختی</Typography>
 
               <FormControl fullWidth>
                 <Select labelId="difficulty-level-label" id="difficulty-level">
@@ -54,10 +56,40 @@ const CreateQuestion = () => {
                   <MenuItem value="hard">دشوار</MenuItem>
                 </Select>
               </FormControl>
-              </Grid2>
+            </Grid2>
           </Grid2>
+          <QuestionOptions></QuestionOptions>
         </Box>
       </Card>
+
+      <Typography align='right' my={5} variant='h3' fontWeight={'bold'}>سوالات مشابه</Typography>
+      <TextField
+              id="question-title"
+              placeholder="عنوان مورد نظرتان را وارد کنید ..."
+              variant="outlined"
+              fullWidth
+      />
+      
+      <BasicTable titles={["", "عنوان سوال", "سختی", "دسته‌بندی"]} rows={[{
+        key: 'temp',
+        columns: [
+          <Checkbox />,
+          <Typography>قرابت معکوس</Typography>,
+          <Typography>دشوار</Typography>,
+          <Chip label="ادبیات"></Chip>
+        ]
+      },
+      {
+        key: 't2',
+        columns: [
+          <Checkbox />,
+          <Typography>قرابت معکوس</Typography>,
+          <Typography>دشوار</Typography>,
+          <Chip label="ادبیات"></Chip>
+        ]
+      }
+
+      ]}></BasicTable>
 
     </Container>
   );
