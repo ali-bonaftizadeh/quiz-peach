@@ -30,6 +30,9 @@ function App() {
   theme = createTheme(theme, {
     components: {
       MuiButton: {
+        defaultProps: {
+          disableElevation: true,
+        },
         styleOverrides: {
           root: {
             textWrap: 'nowrap',

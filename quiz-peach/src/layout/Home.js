@@ -44,8 +44,8 @@ const Home = () => {
                                 variant="outlined"
                                 fullWidth
                             />
-                            <Button size='medium' variant="contained">سوال تصادفی</Button>
-                            <Button size='medium' variant="outlined">ساخت سوال جدید</Button>
+                            <Button size='medium' variant="outlined">سوال تصادفی</Button>
+                            <Button size='medium' color='success' variant="contained">جدید</Button>
                         </Box>
 
                         <BasicTable
