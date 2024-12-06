@@ -24,10 +24,6 @@ const Home = () => {
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <SummaryBox title="قرابت معکوس"></SummaryBox>
-                        <Similars title="از همین طراح">
-                            <Typography>here is a test</Typography>
-                        </Similars>
                         <ToggleBox title="سوالات من"></ToggleBox>
                         <ToggleBox title="نشان‌شده‌ها"></ToggleBox>
                         <FiltersBox
@@ -51,19 +47,6 @@ const Home = () => {
                             <Button variant="contained">سوال جدید</Button>
                             <Button variant="outlined">ساخت سوال جدید</Button>
                         </Stack>
-
-                        <Editor></Editor>
-
-                        <QuestionView
-                            question="متن زیر با کدام بیت قرابت معنایی دارد؟
-«او بنده خود را عاشق خود کند، آنگاه بر بنده عاشق باشد.» "
-                            options={[
-                                ' غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را',
-                                'حسنت به اتفاق ملاحت جهان گرفت  /  آری به اتفاق جهان می‌توان گرفت',
-                                'در ازل پرتو حسنت ز تجلی دم زد / عشق پیدا شد و آتش به همه عالم زد',
-                                ' غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را',
-                            ]}
-                        ></QuestionView>
 
                         <BasicTable
                             titles={['عنوان سوال', 'سختی', 'دسته‌بندی']}

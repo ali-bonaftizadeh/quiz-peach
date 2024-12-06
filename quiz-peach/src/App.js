@@ -5,13 +5,14 @@ import CreateQuestion from './layout/CreateQuestion';
 import Tags from './layout/Tags';
 import Ranking from './layout/Ranking';
 import Home from './layout/Home';
+import QuestionPage from './layout/QuestionPage';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
   document.body.setAttribute("dir", "rtl");
-  const [darkTheme, setDarkTheme] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   let theme = createTheme({
     direction: 'rtl',
@@ -79,6 +80,7 @@ function App() {
           <Route path="/create-question" element={<CreateQuestion />} />
           <Route path="/tag" element={<Tags />} />
           <Route path="/ranking" element={<Ranking />} />
+          <Route path="/question" element={<QuestionPage />} />
         </Routes>
       </div>
     </ThemeProvider>
