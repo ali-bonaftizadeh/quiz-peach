@@ -49,6 +49,13 @@ function App() {
           },
         },
       },
+      MuiSwitch: {
+        styleOverrides: {
+          root: {
+            marginLeft: '-8px',
+          },
+        },
+      },
       MuiOutlinedInput: {
         styleOverrides: {
           notchedOutline: {
