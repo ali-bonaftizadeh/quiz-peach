@@ -9,44 +9,25 @@ const FiltersBox = ({ title, options }) => {
     const theme = useTheme();
     return (
         <Card>
-        <Accordion disableGutters>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                sx={{
-                    minHeight: 'initial'
-                }}
-            >
-                <Box sx={{
-                    display: 'flex',
-                    cursor: 'pointer',
-                }}
-                >
-                    <Typography>{title}</Typography>
-                </Box>
-            </AccordionSummary>
-            <AccordionDetails sx={{
-                borderTop: `0.1rem solid ${theme.palette.borderColor.main}`,
-            }}>
-                <Box sx={{
-                    display: 'flex',
-                    py: 1,
-                    cursor: 'pointer',
-                }}
-                >
+            <Accordion disableGutters>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    {title}
+                </AccordionSummary>
+                <AccordionDetails sx={{
+                    borderTop: `0.1rem solid ${theme.palette.borderColor.main}`,
+                }}>
                     <FormGroup>
                         {
                             options.map(option => {
+                                const checkBoxComponent = <Checkbox />
                                 return (
-                                    <FormControlLabel key={option} sx={{ m: 0 }} control={<Checkbox />} label={option} />
+                        <FormControlLabel color={theme.palette.borderColor.main} label = { option } key={option} control={ checkBoxComponent }/>
                                 )
                             })
                         }
                     </FormGroup>
-                </Box>
-            </AccordionDetails>
-        </Accordion>
+                </AccordionDetails>
+            </Accordion>
         </Card>
 
     )
