@@ -1,7 +1,7 @@
 import Editor from '../components/MarkdownEditor';
 import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip, Card, Checkbox } from '@mui/material';
 import { Autocomplete, MenuItem, FormControl, Select, InputLabel } from '@mui/material';
-import QuestionOptions from './QuestionOptions';
+import QuestionOptions from '../components/QuestionOptions';
 import BasicTable from '../components/Table';
 
 

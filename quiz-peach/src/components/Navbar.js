@@ -7,7 +7,7 @@ const Navbar = () => {
     <AppBar position="static" color="primary">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          برنامه سوالات
+          کوئیز پیج
         </Typography>
         <Box>
           <Button color="inherit" component={Link} to="/">
@@ -15,9 +15,6 @@ const Navbar = () => {
           </Button>
           <Button color="inherit" component={Link} to="/create-question">
             ساخت سوال
-          </Button>
-          <Button color="inherit" component={Link} to="/options">
-            گزینه‌ها
           </Button>
         </Box>
       </Toolbar>
