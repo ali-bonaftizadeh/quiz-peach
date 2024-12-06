@@ -10,6 +10,16 @@ import Editor from '../components/MarkdownEditor';
 const Home = () => {
     return (
         <Container>
+            <CssBaseline />
+            <Typography
+                variant="h2"
+                component="h2"
+                align="center"
+                gutterBottom
+                sx={{ mt: 4, mb: 4 }}
+            >
+                خانه
+            </Typography>
             <Box sx={{ m: 5 }}></Box> {/* only for test */}
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>

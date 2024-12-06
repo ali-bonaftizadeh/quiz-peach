@@ -1,13 +1,6 @@
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip } from '@mui/material';
-import FiltersBox from './components/FiltersBox';
-import ToggleBox from './components/ToggleBox';
-import BasicTable from './components/Table';
-import SummaryBox from './components/SummaryBox';
-import Similars from './components/Similars';
-import QuestionView from './components/QuestionView';
-import Editor from './components/MarkdownEditor';
+import { CssBaseline } from '@mui/material';
 import CreateQuestion from './layout/CreateQuestion';
 import Tags from './layout/Tags';
 import Ranking from './layout/Ranking';

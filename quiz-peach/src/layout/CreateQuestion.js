@@ -10,7 +10,15 @@ const CreateQuestion = () => {
 
   return (
     <Container>
-
+      <Typography
+        variant="h2"
+        component="h2"
+        align="center"
+        gutterBottom
+        sx={{ mt: 4, mb: 4 }}
+      >
+        ساخت سوال
+      </Typography>
       <Card display="flex" flexDirection="column" sx={{ textAlign: 'right' }} padding={3}>
         <Box padding={3} spacing={3}>
           <FormControl fullWidth margin="normal">
@@ -64,12 +72,12 @@ const CreateQuestion = () => {
 
       <Typography align='right' my={5} variant='h3' fontWeight={'bold'}>سوالات مشابه</Typography>
       <TextField
-              id="question-title"
-              placeholder="عنوان مورد نظرتان را وارد کنید ..."
-              variant="outlined"
-              fullWidth
+        id="question-title"
+        placeholder="عنوان مورد نظرتان را وارد کنید ..."
+        variant="outlined"
+        fullWidth
       />
-      
+
       <BasicTable titles={["", "عنوان سوال", "سختی", "دسته‌بندی"]} rows={[{
         key: 'temp',
         columns: [
