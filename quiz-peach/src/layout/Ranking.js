@@ -1,96 +1,96 @@
 import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip, Card, Checkbox } from '@mui/material';
 import { Autocomplete, MenuItem, FormControl, Select, InputLabel } from '@mui/material';
-import QuestionOptions from '../components/QuestionOptions';
 import BasicTable from '../components/Table';
+import FiltersBox from '../components/FiltersBox';
 
 const Ranking = () => {
-    const categories = ['ادبیات', 'پایگاه داده', 'سیستم عامل', 'معماری نرم افزار', 'وب'];
-  
     return (
-      <Container>
-  
-        <Card display="flex" flexDirection="column" sx={{ textAlign: 'right' }} padding={3}>
-          <Box padding={3} spacing={3}>
-            <FormControl fullWidth margin="normal">
-              <Typography variant="body1">عنوان سوال</Typography>
-              <TextField
-                id="question-title"
-                placeholder="عنوان مورد نظرتان را وارد کنید ..."
-                variant="outlined"
-                fullWidth
-              />
-            </FormControl>
-  
-            <FormControl fullWidth margin="normal">
-              <Typography variant="body1">متن سوال</Typography>
-              <TextField
-                id="question-text"
-                placeholder="صورت سوال را در این بخش بنویسید ..."
-                variant="outlined"
-                multiline
-                rows={8}
-                fullWidth
-              />
-            </FormControl>
-  
+        <Container>
+            <CssBaseline />
+            <Typography
+                variant="h2"
+                component="h2"
+                align="center"
+                gutterBottom
+                sx={{ mt: 4, mb: 4 }}
+            >
+                جدول امتیازات
+            </Typography>
+            <Box sx={{ m: 5 }}></Box> {/* only for test */}
             <Grid2 container spacing={2}>
-              <Grid2 size={6}>
-                <Typography variant="body1">دسته‌بندی</Typography>
-                <Autocomplete
-                  options={categories}
-                  renderInput={(params) => (
-                    <TextField {...params} placeholder="یک دسته‌بندی را وارد نمایید" fullWidth />
-                  )}
-                />
-              </Grid2>
-              <Grid2 size={6}>
-  
-                <Typography variant="body1">سطح سختی</Typography>
-  
-                <FormControl fullWidth>
-                  <Select labelId="difficulty-level-label" id="difficulty-level">
-                    <MenuItem value="easy">آسان</MenuItem>
-                    <MenuItem value="medium">متوسط</MenuItem>
-                    <MenuItem value="hard">دشوار</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid2>
+                <Grid2 container size={{ sm: 12, md: 3 }}>
+                    <Stack sx={{ width: '100%' }} spacing={2}>
+                    <FiltersBox
+                            title="بازه زمانی"
+                            options={['امروز', 'هفته گذشته', 'ماه گذشته', 'همیشه']}
+                        ></FiltersBox>
+                    </Stack>
+                </Grid2>
+                <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
+                    <Stack sx={{ width: '100%' }} spacing={2}>
+                        <TextField
+                            id="tag-title"
+                            placeholder="جستجوی کاربران ..."
+                            variant="outlined"
+                            fullWidth
+                        />
+
+                        <BasicTable titles={["برچسب", "تعداد سوالات"]} rows={[{
+                            key: 't1',
+                            columns: [
+                                <Typography>سینما</Typography>,
+                                <Typography>10</Typography>,
+                            ]
+                        },
+                        {
+                            key: 't2',
+                            columns: [
+                                <Typography>ادبیات</Typography>,
+                                <Typography>5</Typography>,
+                            ]
+                        },
+                        {
+                            key: 't3',
+                            columns: [
+                                <Typography>موسیقی</Typography>,
+                                <Typography>8</Typography>,
+                            ]
+                        },
+                        {
+                            key: 't4',
+                            columns: [
+                                <Typography>تاریخ</Typography>,
+                                <Typography>7</Typography>,
+                            ]
+                        },
+                        {
+                            key: 't5',
+                            columns: [
+                                <Typography>تکنولوژی</Typography>,
+                                <Typography>6</Typography>,
+                            ]
+                        },
+                        {
+                            key: 't6',
+                            columns: [
+                                <Typography>اطلاعات عمومی</Typography>,
+                                <Typography>4</Typography>,
+                            ]
+                        },
+                        {
+                            key: 't7',
+                            columns: [
+                                <Typography>ورزشی</Typography>,
+                                <Typography>9</Typography>,
+                            ]
+                        }
+
+                        ]}></BasicTable>
+                    </Stack>
+                </Grid2>
             </Grid2>
-            <QuestionOptions></QuestionOptions>
-          </Box>
-        </Card>
-  
-        <Typography align='right' my={5} variant='h3' fontWeight={'bold'}>سوالات مشابه</Typography>
-        <TextField
-                id="question-title"
-                placeholder="عنوان مورد نظرتان را وارد کنید ..."
-                variant="outlined"
-                fullWidth
-        />
-        
-        <BasicTable titles={["", "عنوان سوال", "سختی", "دسته‌بندی"]} rows={[{
-          key: 'temp',
-          columns: [
-            <Checkbox />,
-            <Typography>قرابت معکوس</Typography>,
-            <Typography>دشوار</Typography>,
-            <Chip label="ادبیات"></Chip>
-          ]
-        },
-        {
-          key: 't2',
-          columns: [
-            <Checkbox />,
-            <Typography>قرابت معکوس</Typography>,
-            <Typography>دشوار</Typography>,
-            <Chip label="ادبیات"></Chip>
-          ]
-        }
-  
-        ]}></BasicTable>
-  
-      </Container>
+        </Container>
     );
-  }
-  
-  export default Ranking;
+}
+
+export default Ranking;

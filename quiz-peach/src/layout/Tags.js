@@ -8,6 +8,16 @@ const Tags = () => {
 
     return (
         <Container>
+            <CssBaseline />
+            <Typography
+                variant="h2"
+                component="h2"
+                align="center"
+                gutterBottom
+                sx={{ mt: 4, mb: 4 }}
+            >
+                برچسب ها
+            </Typography>
             <Box sx={{ m: 5 }}></Box> {/* only for test */}
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
@@ -19,7 +29,7 @@ const Tags = () => {
                     <Stack sx={{ width: '100%' }} spacing={2}>
                         <TextField
                             id="tag-title"
-                            placeholder="برچسب مورد نظرتان را وارد کنید ..."
+                            placeholder="جستجوی برچسب ..."
                             variant="outlined"
                             fullWidth
                         />
