@@ -29,11 +29,30 @@ function App() {
 
   theme = createTheme(theme, {
     components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textWrap: 'nowrap',
+            padding: '.5rem 1.5rem'
+          }
+        }
+      },
       MuiCard: {
         styleOverrides: {
           root: {
             boxShadow: 'none',
             border: `0.1rem solid ${theme.palette.borderColor.main}`,
+            borderRadius: '0.6rem',
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          notchedOutline: {
+            borderColor: `0.1rem solid ${theme.palette.borderColor.main}`
+          },
+          root: {
+            borderColor: `0.1rem solid ${theme.palette.borderColor.main}`,
             borderRadius: '0.6rem',
           },
         },

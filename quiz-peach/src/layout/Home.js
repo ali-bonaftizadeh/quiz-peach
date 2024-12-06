@@ -38,15 +38,15 @@ const Home = () => {
                 </Grid2>
                 <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <Stack sx={{ width: '100%' }} direction={'row'} spacing={2}>
+                        <Box flexDirection={'row'} display='flex' gap={2}>
                             <TextField
-                                label="جستجوی سوال ..."
+                                placeholder="جستجوی سوال ..."
                                 variant="outlined"
                                 fullWidth
                             />
-                            <Button variant="contained">سوال جدید</Button>
-                            <Button variant="outlined">ساخت سوال جدید</Button>
-                        </Stack>
+                            <Button size='medium' variant="contained">سوال تصادفی</Button>
+                            <Button size='medium' variant="outlined">ساخت سوال جدید</Button>
+                        </Box>
 
                         <BasicTable
                             titles={['عنوان سوال', 'سختی', 'دسته‌بندی']}
