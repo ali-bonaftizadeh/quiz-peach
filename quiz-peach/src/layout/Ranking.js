@@ -20,7 +20,7 @@ const Ranking = () => {
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                    <FiltersBox
+                        <FiltersBox
                             title="بازه زمانی"
                             options={['امروز', 'هفته گذشته', 'ماه گذشته', 'همیشه']}
                         ></FiltersBox>
@@ -28,63 +28,55 @@ const Ranking = () => {
                 </Grid2>
                 <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <TextField
-                            id="tag-title"
-                            placeholder="جستجوی کاربران ..."
-                            variant="outlined"
-                            fullWidth
-                        />
+                        <Stack sx={{ width: '100%' }} direction={'row'} spacing={2}>
+                            <TextField
+                                label="جستجوی کاربر ..."
+                                variant="outlined"
+                                fullWidth
+                            />
+                            <Button variant="contained">جستجو</Button>
+                        </Stack>
 
-                        <BasicTable titles={["برچسب", "تعداد سوالات"]} rows={[{
+                        <BasicTable titles={["رتبه", "نام کاربر", "تعداد سوالات درست"]} rows={[{
                             key: 't1',
                             columns: [
-                                <Typography>سینما</Typography>,
-                                <Typography>10</Typography>,
+                                <Typography>5</Typography>,
+                                <Typography>بازیکن فعلی</Typography>,
+                                <Typography>0</Typography>,
                             ]
                         },
                         {
                             key: 't2',
                             columns: [
-                                <Typography>ادبیات</Typography>,
-                                <Typography>5</Typography>,
+                                <Typography>1</Typography>,
+                                <Typography>سجاد سلطانیان</Typography>,
+                                <Typography>4</Typography>,
                             ]
                         },
                         {
                             key: 't3',
                             columns: [
-                                <Typography>موسیقی</Typography>,
-                                <Typography>8</Typography>,
+                                <Typography>2</Typography>,
+                                <Typography>علی بنافتی زاده</Typography>,
+                                <Typography>3</Typography>,
                             ]
                         },
                         {
                             key: 't4',
                             columns: [
-                                <Typography>تاریخ</Typography>,
-                                <Typography>7</Typography>,
+                                <Typography>3</Typography>,
+                                <Typography>بزرگمهر ضیاء</Typography>,
+                                <Typography>2</Typography>,
                             ]
                         },
                         {
                             key: 't5',
                             columns: [
-                                <Typography>تکنولوژی</Typography>,
-                                <Typography>6</Typography>,
-                            ]
-                        },
-                        {
-                            key: 't6',
-                            columns: [
-                                <Typography>اطلاعات عمومی</Typography>,
                                 <Typography>4</Typography>,
-                            ]
-                        },
-                        {
-                            key: 't7',
-                            columns: [
-                                <Typography>ورزشی</Typography>,
-                                <Typography>9</Typography>,
+                                <Typography>صادق کریمی</Typography>,
+                                <Typography>1</Typography>,
                             ]
                         }
-
                         ]}></BasicTable>
                     </Stack>
                 </Grid2>

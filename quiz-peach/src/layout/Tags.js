@@ -27,12 +27,14 @@ const Tags = () => {
                 </Grid2>
                 <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <TextField
-                            id="tag-title"
-                            placeholder="جستجوی برچسب ..."
-                            variant="outlined"
-                            fullWidth
-                        />
+                        <Stack sx={{ width: '100%' }} direction={'row'} spacing={2}>
+                            <TextField
+                                label="جستجوی برچسب ..."
+                                variant="outlined"
+                                fullWidth
+                            />
+                            <Button variant="contained">جستجو</Button>
+                        </Stack>
 
                         <BasicTable titles={["برچسب", "تعداد سوالات"]} rows={[{
                             key: 't1',
