@@ -9,6 +9,8 @@ import Similars from './components/Similars';
 import QuestionView from './components/QuestionView';
 import Editor from './components/MarkdownEditor';
 import CreateQuestion from './layout/CreateQuestion';
+import Tags from './layout/Tags';
+import Ranking from './layout/Ranking';
 import Navbar from './components/Navbar'; // Import the new Navbar component
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -83,6 +85,8 @@ function App() {
         <Routes>
             <Route path="/" element={<h1>صفحه اصلی</h1>} />
             <Route path="/create-question" element={<CreateQuestion />} />
+            <Route path="/tag" element={<Tags />} />
+            <Route path="/ranking" element={<Ranking />} />
         </Routes>
 
         <Box sx={{ m: 5 }}></Box> {/* only for test */}

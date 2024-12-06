@@ -16,6 +16,12 @@ const Navbar = () => {
           <Button color="inherit" component={Link} to="/create-question">
             ساخت سوال
           </Button>
+          <Button color="inherit" component={Link} to="/tag">
+            برچسب ها
+          </Button>
+          <Button color="inherit" component={Link} to="/ranking">
+            جدول امتیازات
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
