@@ -5,6 +5,7 @@ import CreateQuestion from './layout/CreateQuestion';
 import Tags from './layout/Tags';
 import Ranking from './layout/Ranking';
 import Home from './layout/Home';
+import Login from './layout/Login';
 import QuestionPage from './layout/QuestionPage';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
@@ -106,6 +107,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/create-question" element={<CreateQuestion />} />
           <Route path="/tag" element={<Tags />} />
           <Route path="/ranking" element={<Ranking />} />

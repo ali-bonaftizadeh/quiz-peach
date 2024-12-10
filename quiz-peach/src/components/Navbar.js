@@ -10,6 +10,9 @@ const Navbar = () => {
           کوئیز پیج
         </Typography>
         <Box>
+          <Button color="inherit" component={Link} to="/login">
+            ورود به حساب کاربری
+          </Button>
           <Button color="inherit" component={Link} to="/">
             خانه
           </Button>
