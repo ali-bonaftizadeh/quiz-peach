@@ -1,11 +1,7 @@
-import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button, Chip } from '@mui/material';
-import FiltersBox from '../components/FiltersBox';
-import ToggleBox from '../components/ToggleBox';
-import BasicTable from '../components/Table';
+import { Box, Container, CssBaseline, Grid2, Typography, Stack } from '@mui/material';
 import SummaryBox from '../components/SummaryBox';
 import Similars from '../components/Similars';
 import QuestionView from '../components/QuestionView';
-import Editor from '../components/MarkdownEditor';
 
 const Home = () => {
     return (

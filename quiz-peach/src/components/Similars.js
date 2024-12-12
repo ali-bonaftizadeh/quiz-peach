@@ -1,7 +1,5 @@
-import { Box, Card, Stack, Typography, FormGroup, FormControlLabel, Checkbox, Chip } from "@mui/material";
+import { Box, Card, Stack, Typography, Chip } from "@mui/material";
 import Table from "./Table";
-import Divider from '@mui/material/Divider';
-import { column } from "stylis";
 
 const Similars = ({title, rows}) => {
     return (

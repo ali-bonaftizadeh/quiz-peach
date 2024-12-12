@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Card } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Card } from '@mui/material';
 
 export default function BasicTable({titles, rows}) {
   return (
