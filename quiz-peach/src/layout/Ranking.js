@@ -1,8 +1,36 @@
 import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button } from '@mui/material';
 import BasicTable from '../components/Table';
-import FiltersBox from '../components/FiltersBox';
+import { useEffect, useState } from 'react';
+import { fetchData } from '../components/ApiService';
 
 const Ranking = () => {
+    const [searchQuery, setSearchQuery] = useState(''); // For search input
+    const [rankingData, setRankingData] = useState([]); // For storing user ranking data
+
+    // Function to fetch user rankings
+    const fetchRankingData = async (query = '') => {
+        try {
+            // Adjust the API endpoint based on your actual API
+            const response = await fetchData(`/user?name=${query}`);  // Assuming API accepts search query
+            if (response && Array.isArray(response)) {
+                setRankingData(response); // Update the state with the fetched data
+            } else {
+                console.error('Invalid response format:', response);
+            }
+        } catch (error) {
+            console.error('Error fetching ranking data:', error);
+        }
+    };
+
+    // Fetch ranking data on component mount or when the searchQuery changes
+    useEffect(() => {
+        fetchRankingData(searchQuery);
+    }, [searchQuery]);
+
+    const handleSearch = () => {
+        fetchRankingData(searchQuery);  // Trigger search with the current query
+    };
+
     return (
         <Container>
             <CssBaseline />
@@ -17,66 +45,29 @@ const Ranking = () => {
             </Typography>
             <Box sx={{ m: 5 }}></Box> {/* only for test */}
             <Grid2 container spacing={2}>
-                <Grid2 container size={{ sm: 12, md: 3 }}>
+                <Grid2 size={{ sm: 12, md: 12 }} spacing={2}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <FiltersBox
-                            title="بازه زمانی"
-                            options={['امروز', 'هفته گذشته', 'ماه گذشته', 'همیشه']}
-                        ></FiltersBox>
-                    </Stack>
-                </Grid2>
-                <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
-                    <Stack sx={{ width: '100%' }} spacing={2}>
-                        <Stack sx={{ width: '100%' }} direction={'row'} spacing={2}>
+                        <Box flexDirection={'row'} display='flex' gap={2}>
                             <TextField
-                                label="جستجوی کاربر ..."
+                                placeholder="جستجوی کاربر ..."
                                 variant="outlined"
                                 fullWidth
+                                onChange={(e) => setSearchQuery(e.target.value)}
                             />
-                            <Button variant="contained">جستجو</Button>
-                        </Stack>
+                            <Button variant="contained" onClick={handleSearch}>جستجو</Button>
+                        </Box>
 
-                        <BasicTable titles={["رتبه", "نام کاربر", "تعداد سوالات درست"]} rows={[{
-                            key: 't1',
-                            columns: [
-                                <Typography>5</Typography>,
-                                <Typography>بازیکن فعلی</Typography>,
-                                <Typography>0</Typography>,
-                            ]
-                        },
-                        {
-                            key: 't2',
-                            columns: [
-                                <Typography>1</Typography>,
-                                <Typography>سجاد سلطانیان</Typography>,
-                                <Typography>4</Typography>,
-                            ]
-                        },
-                        {
-                            key: 't3',
-                            columns: [
-                                <Typography>2</Typography>,
-                                <Typography>علی بنافتی زاده</Typography>,
-                                <Typography>3</Typography>,
-                            ]
-                        },
-                        {
-                            key: 't4',
-                            columns: [
-                                <Typography>3</Typography>,
-                                <Typography>بزرگمهر ضیاء</Typography>,
-                                <Typography>2</Typography>,
-                            ]
-                        },
-                        {
-                            key: 't5',
-                            columns: [
-                                <Typography>4</Typography>,
-                                <Typography>صادق کریمی</Typography>,
-                                <Typography>1</Typography>,
-                            ]
-                        }
-                        ]}></BasicTable>
+                        <BasicTable
+                            titles={["رتبه", "نام کاربر", "تعداد سوالات درست"]}
+                            rows={rankingData.map((user) => ({
+                                key: `user-${user.id}`,
+                                columns: [
+                                    <Typography key={`rank-${user.rank}`}>{user.rank}</Typography>,
+                                    <Typography key={`name-${user.id}`}>{user.name}</Typography>,
+                                    <Typography key={`score-${user.id}`}>{user.score || 0}</Typography>,
+                                ]
+                            }))
+                            }></BasicTable>
                     </Stack>
                 </Grid2>
             </Grid2>

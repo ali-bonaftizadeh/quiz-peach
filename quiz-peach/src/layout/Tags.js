@@ -81,7 +81,7 @@ const Tags = () => {
                 // Clear the input field after creation
                 setSearchQuery('');
             } else {
-                alert('Failed to create tag. Please try again.');
+                alert('برچسب تکراری است.');
             }
         } catch (error) {
             console.error('Error creating tag:', error);

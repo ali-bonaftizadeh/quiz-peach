@@ -13,7 +13,7 @@ const QustionPage = () => {
     useEffect(() => {
         const fetchQuestionDetails = async () => {
             try {
-                const data = await fetchData(`/question-details/${questionId}`);
+                const data = await fetchData(`/question/${questionId}/details`);
                 setQuestionData(data); // Set the fetched data to state
             } catch (error) {
                 console.error('Error fetching question details:', error);

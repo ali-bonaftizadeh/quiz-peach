@@ -16,7 +16,7 @@ const Home = () => {
         // Fetch questions data when filters change
         const fetchQuestions = async () => {
             try {
-                const data = await fetchData('/questions', filters);
+                const data = await fetchData('/question', filters);
                 setQuestions(data);
             } catch (error) {
                 console.error('Failed to fetch questions:', error);

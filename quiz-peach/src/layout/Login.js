@@ -33,7 +33,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { email, password } = formData;
-      const response = await postData('/login', { email, password });
+      const response = await postData('/user/login', { email, password });
       setMessage(response.message); // Login successful message
     } catch (err) {
       setError('Invalid email or password');
@@ -49,7 +49,7 @@ const Login = () => {
         return;
       }
 
-      const response = await postData('/register', { name, email, password });
+      const response = await postData('/user', { name, email, password });
       setMessage('Registration successful');
     } catch (err) {
       setError('An error occured');
