@@ -1,9 +1,33 @@
 import { Box, Container, CssBaseline, Grid2, Typography, Stack } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { fetchData } from '../components/ApiService';
 import SummaryBox from '../components/SummaryBox';
 import Similars from '../components/Similars';
 import QuestionView from '../components/QuestionView';
 
-const Home = () => {
+const QustionPage = () => {
+    const [questionData, setQuestionData] = useState(null); // State to store the question data
+    const questionId = 1; // Example question ID, you can set this dynamically based on routing or context
+
+    // Fetch question details from the API
+    useEffect(() => {
+        const fetchQuestionDetails = async () => {
+            try {
+                const data = await fetchData(`/question-details/${questionId}`);
+                setQuestionData(data); // Set the fetched data to state
+            } catch (error) {
+                console.error('Error fetching question details:', error);
+            }
+        };
+
+        fetchQuestionDetails();
+    }, [questionId]); // Dependency array ensures the effect runs only once when the component mounts
+
+    // If the data is not loaded, show a loading message
+    if (!questionData) {
+        return <Typography variant="h6" align="center">Loading...</Typography>;
+    }
+
     return (
         <Container>
             <CssBaseline />
@@ -20,28 +44,26 @@ const Home = () => {
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <SummaryBox title="قرابت معکوس"></SummaryBox>
+                        <SummaryBox title={questionData.name}></SummaryBox>
                         <Similars title="از همین طراح">
-                            <Typography>here is a test</Typography>
+                            <Typography>Here are similar questions.</Typography>
                         </Similars>
                     </Stack>
                 </Grid2>
                 <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
-                        <QuestionView
-                            question="متن زیر با کدام بیت قرابت معنایی دارد؟
-«او بنده خود را عاشق خود کند، آنگاه بر بنده عاشق باشد.» "
-                            options={[
-                                ' غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را',
-                                'حسنت به اتفاق ملاحت جهان گرفت  /  آری به اتفاق جهان می‌توان گرفت',
-                                'در ازل پرتو حسنت ز تجلی دم زد / عشق پیدا شد و آتش به همه عالم زد',
-                                ' غرور حسنت اجازت مگرنداد ای گل  /  که پرسشی نکنی عندلیب شیدا را',
-                            ]}
-                        ></QuestionView>
+                    <QuestionView
+                        question={questionData.question}
+                        options={[
+                            questionData.option1,
+                            questionData.option2,
+                            questionData.option3,
+                            questionData.option4,
+                        ]}
+                    ></QuestionView>
                 </Grid2>
             </Grid2>
         </Container>
-
     );
-}
+};
 
-export default Home;
+export default QustionPage;
