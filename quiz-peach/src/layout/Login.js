@@ -1,26 +1,69 @@
 import React, { useState } from 'react';
 import { Box, Container, Typography, TextField, Button, Card } from '@mui/material';
-import ButtonsBox from '../components/ButtonsBox'; // Ensure correct path
+import ButtonsBox from '../components/ButtonsBox';
+import { postData } from '../components/ApiService';
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState('login');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    name: '',
+    confirmPassword: '',
+  });
+  const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
+
   const options = [
     { id: 'login', label: 'ورود' },
     { id: 'signup', label: 'ثبت‌نام' },
+    { id: 'logout', label: 'خروج' },
   ];
 
   const handleOptionClick = (id) => setActiveTab(id);
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { email, password } = formData;
+      const response = await postData('/login', { email, password });
+      setMessage(response.message); // Login successful message
+    } catch (err) {
+      setError('Invalid email or password');
+    }
+  };
+
+  const handleSignUpSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { name, email, password, confirmPassword } = formData;
+      if (password !== confirmPassword) {
+        setError('Passwords do not match');
+        return;
+      }
+
+      const response = await postData('/register', { name, email, password });
+      setMessage('Registration successful');
+    } catch (err) {
+      setError('An error occured');
+    }
+  };
+
   return (
     <Container>
-      <Typography
-        variant="h2"
-        component="h2"
-        align="center"
-        gutterBottom
-        sx={{ mt: 4, mb: 4 }}
-      >
-        {activeTab === 'login' ? 'ورود به حساب کاربری' : 'ثبت‌نام'}
+      <Typography variant="h2" component="h2" align="center" gutterBottom sx={{ mt: 4, mb: 4 }}>
+        {activeTab === 'login'
+          ? 'ورود به حساب کاربری'
+          : activeTab === 'signup'
+          ? 'ثبت‌نام'
+          : 'خروج از حساب کاربری'}
       </Typography>
       <Card sx={{ textAlign: 'right', padding: 3 }}>
         {/* Dynamic Title */}
@@ -41,6 +84,7 @@ const Login = () => {
         {activeTab === 'login' && (
           <Box
             component="form"
+            onSubmit={handleLoginSubmit}
             sx={{
               display: 'flex',
               flexDirection: 'column',
@@ -50,24 +94,30 @@ const Login = () => {
           >
             <Typography variant="body1">ایمیل</Typography>
             <TextField
-              id="login-email"
+              id="email"
               placeholder="ایمیل خود را وارد کنید"
               variant="outlined"
               fullWidth
+              value={formData.email}
+              onChange={handleChange}
             />
 
             <Typography variant="body1">رمز عبور</Typography>
             <TextField
-              id="login-password"
+              id="password"
               placeholder="رمز عبور خود را وارد کنید"
               variant="outlined"
               type="password"
               fullWidth
+              value={formData.password}
+              onChange={handleChange}
             />
 
             <Button variant="contained" color="primary" type="submit" fullWidth>
               ورود
             </Button>
+            {error && <Typography color="error">{error}</Typography>}
+            {message && <Typography color="primary">{message}</Typography>}
           </Box>
         )}
 
@@ -75,6 +125,7 @@ const Login = () => {
         {activeTab === 'signup' && (
           <Box
             component="form"
+            onSubmit={handleSignUpSubmit}
             sx={{
               display: 'flex',
               flexDirection: 'column',
@@ -84,41 +135,74 @@ const Login = () => {
           >
             <Typography variant="body1">نام کامل</Typography>
             <TextField
-              id="signup-name"
+              id="name"
               placeholder="نام کامل خود را وارد کنید"
               variant="outlined"
               fullWidth
+              value={formData.name}
+              onChange={handleChange}
             />
 
             <Typography variant="body1">ایمیل</Typography>
             <TextField
-              id="signup-email"
+              id="email"
               placeholder="ایمیل خود را وارد کنید"
               variant="outlined"
               type="email"
               fullWidth
+              value={formData.email}
+              onChange={handleChange}
             />
 
             <Typography variant="body1">رمز عبور</Typography>
             <TextField
-              id="signup-password"
+              id="password"
               placeholder="رمز عبور خود را وارد کنید"
               variant="outlined"
               type="password"
               fullWidth
+              value={formData.password}
+              onChange={handleChange}
             />
 
             <Typography variant="body1">تایید رمز عبور</Typography>
             <TextField
-              id="signup-confirm-password"
+              id="confirmPassword"
               placeholder="رمز عبور خود را مجددا وارد کنید"
               variant="outlined"
               type="password"
               fullWidth
+              value={formData.confirmPassword}
+              onChange={handleChange}
             />
 
             <Button variant="contained" color="success" type="submit" fullWidth>
               ثبت‌نام
+            </Button>
+            {error && <Typography color="error">{error}</Typography>}
+            {message && <Typography color="primary">{message}</Typography>}
+          </Box>
+        )}
+
+        {/* Logout Message */}
+        {activeTab === 'logout' && (
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              mt: 3,
+            }}
+          >
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              شما با موفقیت از حساب خود خارج شده‌اید.
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => setActiveTab('login')}
+            >
+              بازگشت به ورود
             </Button>
           </Box>
         )}
