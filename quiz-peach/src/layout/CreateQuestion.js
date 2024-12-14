@@ -20,9 +20,9 @@ const CreateQuestion = () => {
     ],
     related_ids: [],
   });
-
-  const [filterName, setFilterName] = useState('');
   const [questions, setQuestions] = useState([]);
+  const [filterName, setFilterName] = useState('');
+  const [selectedIds, setSelectedIds] = useState([]); // Track selected question IDs
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -35,6 +35,12 @@ const CreateQuestion = () => {
     };
     fetchCategories();
   }, []);
+
+  const handleCheckboxChange = (id) => {
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
 
   const handleAnswerChange = (index, value) => {
     const newAnswers = [...questionData.answers];
@@ -71,8 +77,8 @@ const CreateQuestion = () => {
       option2: questionData.answers[1].text,
       option3: questionData.answers[2].text,
       option4: questionData.answers[3].text,
-      correct_option: correctOptionIndex + 1, // Convert to 1-based index
-      related_ids: questionData.related_ids,
+      correct_option: correctOptionIndex + 1,
+      related_ids: selectedIds, // Include selected question IDs
     };
 
     try {
@@ -117,7 +123,10 @@ const CreateQuestion = () => {
   const rows = questions.map((question) => ({
     key: question.id,
     columns: [
-      <Checkbox />,
+      <Checkbox
+        checked={selectedIds.includes(question.id)}
+        onChange={() => handleCheckboxChange(question.id)}
+      />,
       <Typography>{question.name}</Typography>,
       <Typography>{question.level}</Typography>,
       <Chip label={question.tag_name} />,
@@ -198,7 +207,7 @@ const CreateQuestion = () => {
             <Typography variant="body1">
               گزینه‌ها (گزینه صحیح را انتخاب نمایید)
 
-            </Typography>
+        </Typography>
             <RadioGroup>
               {questionData.answers.map((answer, index) => (
                 <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
@@ -225,27 +234,27 @@ const CreateQuestion = () => {
             </RadioGroup>
           </Box>
           <Typography align='right' my={5} variant='h5' fontWeight={'bold'}>سوالات مشابه</Typography>
-          <Box>
+        <Box>
             <Box flexDirection={'row'} display='flex' gap={2}>
-              <TextField
-                placeholder="جستجوی عنوان سوال ..."
+            <TextField
+              placeholder="جستجوی عنوان سوال ..."
                 variant="outlined"
-                fullWidth
-                value={filterName}
-                onChange={(e) => setFilterName(e.target.value)}
-              />
-              <Button variant="contained" onClick={handleSearch}>جستجو</Button>
-            </Box>
+              fullWidth
+              value={filterName}
+              onChange={(e) => setFilterName(e.target.value)}
+            />
+              <Button variant="contained" onClick={fetchQuestions}>جستجو</Button>
+        </Box>
 
             <BasicTable titles={["", "عنوان سوال", "سختی", "دسته‌بندی"]} rows={rows}></BasicTable>
           </Box>
           <Box my={5} sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start' }}>
-            <Button variant="contained" color="success" onClick={handleSubmit}>
-              ساخت سوال جدید
-            </Button>
+          <Button variant="contained" color="success" onClick={handleSubmit}>
+            ساخت سوال جدید
+          </Button>
             <Button variant="contained" color="error" onClick={handleReset}>
               بازنشانی تمام فیلدها
-            </Button>
+          </Button>
           </Box>
 
         </Box>
