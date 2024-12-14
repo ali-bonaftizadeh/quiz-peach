@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+axios.defaults.withCredentials = true; // Set globally for all requests
+
 const API_BASE_URL = 'http://localhost:9090/api';
 
 const apiClient = axios.create({
