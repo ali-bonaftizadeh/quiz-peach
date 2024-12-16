@@ -5,8 +5,11 @@ import BasicTable from '../components/Table';
 import { useState, useEffect } from 'react';
 import { fetchData } from '../components/ApiService';
 import { useNavigate } from 'react-router-dom';
+import { useGlobalFunctions } from '../GlobalContext';
 
 const Home = () => {
+
+    const { getDifficultyLevel } = useGlobalFunctions();
 
     let navigate = useNavigate();
     const routeChange = (path, data) => () => {
@@ -51,7 +54,7 @@ const Home = () => {
             columns: [
                 <Typography onClick={routeChange('/question',  {id: question.id})}
                 >{question.name}</Typography>,
-                <Typography>{question.level}</Typography>,
+                <Typography>{getDifficultyLevel(question.level).getText()}</Typography>,
                 <Chip label={question.tag || 'No tag'} />,
             ],
         }));

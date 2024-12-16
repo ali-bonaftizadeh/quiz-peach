@@ -1,7 +1,10 @@
 import { Box, Card, Chip, Typography } from "@mui/material";
+import { useGlobalFunctions } from '../GlobalContext';
 
+const SummaryBox = ({ title, category, level }) => {
 
-const SummaryBox = ({ title, category }) => {
+    const { getDifficultyLevel } = useGlobalFunctions();
+
     return (
         <Card sx={{
             px: 2,
@@ -14,7 +17,7 @@ const SummaryBox = ({ title, category }) => {
             }}
             >
             <Typography>{title}</Typography>
-            <Chip color="warning" label="متوسط"></Chip>
+            {getDifficultyLevel(level).getLabel()}
         </Box>
         <Box textAlign={"right"} mt={2}>
             <Typography>تعداد حل: ۱۳۶۵</Typography>
