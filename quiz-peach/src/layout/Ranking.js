@@ -11,7 +11,8 @@ const Ranking = () => {
     const fetchRankingData = async (query = '') => {
         try {
             // Adjust the API endpoint based on your actual API
-            const response = await fetchData(`/user?name=${query}`);  // Assuming API accepts search query
+            const response = await fetchData('/user?name=' + query);
+            // Assuming API accepts search query
             if (response && Array.isArray(response)) {
                 setRankingData(response); // Update the state with the fetched data
             } else {
@@ -52,7 +53,9 @@ const Ranking = () => {
                                 placeholder="جستجوی کاربر ..."
                                 variant="outlined"
                                 fullWidth
-                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onChange={(e) => {
+                                    setSearchQuery(e.target.value)
+                                }}
                             />
                             <Button variant="contained" onClick={handleSearch}>جستجو</Button>
                         </Box>
