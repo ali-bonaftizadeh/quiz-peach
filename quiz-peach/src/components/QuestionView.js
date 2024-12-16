@@ -62,6 +62,11 @@ const QuestionView = ({ questionData }) => {
                 <Box display="flex">
                     <Button disabled={disableSubmit || questionData.answered} variant="contained" disableElevation onClick={submitAnswer}>ثبت پاسخ</Button>
                 </Box>
+                {
+                    questionData.answered ? 
+                    <Typography mt={2} >{questionData.answered.answered_status}</Typography>
+                    : null
+                }
             </Stack>
 
         </Card >
