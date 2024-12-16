@@ -44,7 +44,7 @@ const QustionPage = () => {
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <SummaryBox title={questionData.name}></SummaryBox>
+                        <SummaryBox title={questionData.name} category={questionData.Tag.name}></SummaryBox>
                         <Similars title="از همین طراح">
                             <Typography>Here are similar questions.</Typography>
                         </Similars>
