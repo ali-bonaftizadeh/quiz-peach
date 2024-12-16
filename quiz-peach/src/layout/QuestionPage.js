@@ -25,7 +25,7 @@ const QustionPage = () => {
 
     // If the data is not loaded, show a loading message
     if (!questionData) {
-        return <Typography variant="h6" align="center">Loading...</Typography>;
+        return <Typography variant="h6" align="center">متاسفانه سوال تصادفی یافت نشد.</Typography>;
     }
 
     return (
