@@ -9,8 +9,12 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
 
     let navigate = useNavigate();
-    const routeChange = (path) => () => {
-        navigate(path);
+    const routeChange = (path, data) => () => {
+        navigate(path, {
+            state: {
+                data: data
+            }
+        });
     }
 
     const [questions, setQuestions] = useState([]);
@@ -45,7 +49,8 @@ const Home = () => {
         return questions.map((question) => ({
             key: question.id,
             columns: [
-                <Typography>{question.name}</Typography>,
+                <Typography onClick={routeChange('/question',  {id: question.id})}
+                >{question.name}</Typography>,
                 <Typography>{question.level}</Typography>,
                 <Chip label={question.tag || 'No tag'} />,
             ],

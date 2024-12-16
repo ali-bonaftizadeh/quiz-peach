@@ -10,10 +10,8 @@ const QustionPage = () => {
     
     const location = useLocation();
     const data = location.state ? location.state.data : null; // Retrieve the passed data
-
     const [questionData, setQuestionData] = useState(null); // State to store the question data
     const questionId = (data && data.id) ? data.id : 1; // Example question ID, you can set this dynamically based on routing or context
-
     // Fetch question details from the API
     useEffect(() => {
         const fetchQuestionDetails = async () => {
