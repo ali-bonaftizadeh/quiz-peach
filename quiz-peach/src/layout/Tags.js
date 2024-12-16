@@ -13,9 +13,7 @@ const Tags = () => {
         // Fetch tags and associated question counts
         const fetchTags = async () => {
             try {
-                console.log("here 1")
                 const response = await fetchData('/tag');
-                console.log("here 2")
                 setTags(response.map(tag => tag.name));
                 setTableRows(
                     response.map(tag => ({
