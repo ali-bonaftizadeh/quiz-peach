@@ -196,9 +196,9 @@ const CreateQuestion = () => {
                 id="difficulty-level"
                 labelId="difficulty-level-label"
               >
-                <MenuItem value="easy">آسان</MenuItem>
-                <MenuItem value="medium">متوسط</MenuItem>
-                <MenuItem value="hard">دشوار</MenuItem>
+                <MenuItem value="آسان">آسان</MenuItem>
+                <MenuItem value="متوسط">متوسط</MenuItem>
+                <MenuItem value="دشوار">دشوار</MenuItem>
               </Select>
             </FormControl>
             </Grid2>
