@@ -60,6 +60,7 @@ const Login = () => {
 
       const response = await postData('/user', { name, email, password });
       setMessage('ثبت‌نام با موفقیت انجام شد.');
+      routeChange("/");
     } catch (err) {
       setError('خطایی در ثبت‌نام رخ داد. لطفا از تکراری نبودن نام کاربری اطمینان حاصل کنید.');
     }
