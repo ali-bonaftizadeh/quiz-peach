@@ -17,6 +17,7 @@ const QustionPage = () => {
         const fetchQuestionDetails = async () => {
             try {
                 const data = await fetchData(`/question/${questionId}/details`);
+                console.log(data);
                 setQuestionData(data); // Set the fetched data to state
             } catch (error) {
                 console.error('Error fetching question details:', error);
@@ -55,13 +56,7 @@ const QustionPage = () => {
                 </Grid2>
                 <Grid2 size={{ sm: 12, md: 9 }} spacing={2}>
                     <QuestionView
-                        question={questionData.question}
-                        options={[
-                            questionData.option1,
-                            questionData.option2,
-                            questionData.option3,
-                            questionData.option4,
-                        ]}
+                        questionData={questionData}
                     ></QuestionView>
                 </Grid2>
             </Grid2>

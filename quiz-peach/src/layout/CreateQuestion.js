@@ -68,6 +68,7 @@ const CreateQuestion = () => {
       return alert('Please select a correct answer.');
     }
 
+    
     const payload = {
       name: questionData.name,
       question: questionData.question,
