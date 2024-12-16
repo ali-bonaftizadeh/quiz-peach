@@ -34,6 +34,7 @@ const CreateQuestion = () => {
       }
     };
     fetchCategories();
+    fetchQuestions();
   }, []);
 
   const handleCheckboxChange = (id) => {
