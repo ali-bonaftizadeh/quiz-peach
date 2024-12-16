@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { Box, Container, Typography, TextField, Button, Card } from '@mui/material';
 import ButtonsBox from '../components/ButtonsBox';
 import { postData } from '../components/ApiService';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+
+  let navigate = useNavigate(); 
+  const routeChange = (path) => { 
+    navigate(path);
+  }
+
   const [activeTab, setActiveTab] = useState('login');
   const [formData, setFormData] = useState({
     email: '',
@@ -35,6 +43,7 @@ const Login = () => {
       const { email, password } = formData;
       const response = await postData('/user/login', { email, password });
       setMessage('ورود موفقیت‌آمیز'); // Login successful message
+      routeChange("/");
     } catch (err) {
       setError('نام کاربری یا رمز عبور اشتباه است.');
     }
