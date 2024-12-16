@@ -7,13 +7,19 @@ const Navbar = () => {
   const [username, setUsername] = useState(null);
 
   useEffect(() => {
-    // Retrieve the username from cookies
-    const storedUsername = Cookies.get('username');
-    console.log(storedUsername);
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
+    // Function to check the username in cookies
+    const checkUsername = () => {
+      const storedUsername = Cookies.get('username');
+      if (storedUsername !== username) {
+        setUsername(storedUsername); // Update state if username changes
+      }
+    };
+
+    // Check the cookie value periodically
+    const interval = setInterval(checkUsername, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval on unmount
+  }, [username]);
 
   return (
     <AppBar position="static" color="primary">
