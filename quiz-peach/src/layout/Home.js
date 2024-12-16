@@ -4,8 +4,15 @@ import ToggleBox from '../components/ToggleBox';
 import BasicTable from '../components/Table';
 import { useState, useEffect } from 'react';
 import { fetchData } from '../components/ApiService';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+    let navigate = useNavigate();
+    const routeChange = (path) => () => {
+        navigate(path);
+    }
+
     const [questions, setQuestions] = useState([]);
     const [filters, setFilters] = useState({
         level: '',
@@ -73,7 +80,7 @@ const Home = () => {
                     <Stack sx={{ width: '100%' }} spacing={2}>
                         <Box flexDirection={'row'} display='flex' gap={2}>
                             <TextField placeholder="جستجوی سوال ..." variant="outlined" fullWidth />
-                            <Button size='medium' variant="outlined">سوال تصادفی</Button>
+                            <Button size='medium' variant="outlined" onClick={routeChange("question")}>سوال تصادفی</Button>
                             <Button size='medium' color='success' variant="contained">جدید</Button>
                         </Box>
 
