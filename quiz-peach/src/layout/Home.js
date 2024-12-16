@@ -81,7 +81,7 @@ const Home = () => {
                         <Box flexDirection={'row'} display='flex' gap={2}>
                             <TextField placeholder="جستجوی سوال ..." variant="outlined" fullWidth />
                             <Button size='medium' variant="outlined" onClick={routeChange("question")}>سوال تصادفی</Button>
-                            <Button size='medium' color='success' variant="contained">جدید</Button>
+                            <Button size='medium' color='success' variant="contained" onClick={routeChange("create-question")}>جدید</Button>
                         </Box>
 
                         <BasicTable
