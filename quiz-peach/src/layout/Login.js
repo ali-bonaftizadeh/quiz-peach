@@ -34,9 +34,9 @@ const Login = () => {
     try {
       const { email, password } = formData;
       const response = await postData('/user/login', { email, password });
-      setMessage(response.message); // Login successful message
+      setMessage('ورود موفقیت‌آمیز'); // Login successful message
     } catch (err) {
-      setError('Invalid email or password');
+      setError('نام کاربری یا رمز عبور اشتباه است.');
     }
   };
 
@@ -45,14 +45,15 @@ const Login = () => {
     try {
       const { name, email, password, confirmPassword } = formData;
       if (password !== confirmPassword) {
-        setError('Passwords do not match');
+        setError('رمز عبور با تکرار آن مطابقت ندارد');
         return;
       }
 
       const response = await postData('/user', { name, email, password });
-      setMessage('Registration successful');
+      setMessage('ثبت‌نام با موفقیت انجام شد.');
     } catch (err) {
-      setError('An error occured');
+      console.log(err)
+      setError('خطایی در ثبت‌نام رخ داد. لطفا از تکراری نبودن نام کاربری اطمینان حاصل کنید.');
     }
   };
 
