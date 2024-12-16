@@ -16,9 +16,6 @@ export default function BasicTable({titles, rows}) {
         </TableHead>
         <TableBody>
           {rows.map((row) => {
-            console.log(rows);
-            console.log(row);
-
             return (
               <TableRow
                 key={row.key}

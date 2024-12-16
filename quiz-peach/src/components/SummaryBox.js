@@ -1,7 +1,7 @@
 import { Box, Card, Chip, Typography } from "@mui/material";
 
 
-const SummaryBox = ({ title }) => {
+const SummaryBox = ({ title, category }) => {
     return (
         <Card sx={{
             px: 2,
@@ -21,7 +21,7 @@ const SummaryBox = ({ title }) => {
             <Typography>تعداد حل درست: ۶۳۴</Typography>
             <Typography>شانس موفقیت: ۵۶ درصد</Typography>
             <br></br>
-            <Typography>دسته‌بندی: <Chip label="ادبیات"></Chip></Typography>
+            <Typography>دسته‌بندی: <Chip label={category}></Chip></Typography>
         </Box>
 
         </Card >
