@@ -49,9 +49,6 @@ const Navbar = () => {
           <Button color="inherit" component={Link} to="/ranking">
             جدول امتیازات
           </Button>
-          <Button color="inherit" component={Link} to="/question">
-            نمونه سوال
-          </Button>
         </Box>
       </Toolbar>
     </AppBar>

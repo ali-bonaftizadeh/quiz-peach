@@ -35,20 +35,14 @@ const QustionPage = () => {
     return (
         <Container>
             <CssBaseline />
-            <Typography
-                variant="h2"
-                component="h2"
-                align="center"
-                gutterBottom
-                sx={{ mt: 4, mb: 4 }}
-            >
-                یک نمونه سوال
-            </Typography>
             <Box sx={{ m: 5 }}></Box> {/* only for test */}
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <SummaryBox title={questionData.name} category={questionData.Tag.name} level={questionData.level}></SummaryBox>
+                        <SummaryBox title={questionData.name} category={questionData.Tag.name} 
+                            level={questionData.level} answerCount={questionData.answer_count}
+                            correctAnswerCount={questionData.correct_answer_count}
+                        ></SummaryBox>
                         <Similars title="از همین طراح">
                             <Typography>Here are similar questions.</Typography>
                         </Similars>

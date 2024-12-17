@@ -47,19 +47,24 @@ const Home = () => {
         }));
     };
 
-    // Format rows for the table
     const formatRows = () => {
         return questions.map((question) => ({
             key: question.id,
             columns: [
-                <Typography onClick={routeChange('/question',  {id: question.id})}
-                >{question.name}</Typography>,
-                <Typography>{getDifficultyLevel(question.level).getText()}</Typography>,
+                <Typography 
+                    onClick={routeChange('/question', { id: question.id })}
+                    sx={{ cursor: 'pointer' }}
+                >
+                    {question.name}
+                </Typography>,
+                <Typography>
+                    {getDifficultyLevel(question.level)?.getText?.() || 'Unknown Difficulty'}
+                </Typography>,
                 <Chip label={question.tag || 'No tag'} />,
             ],
         }));
     };
-
+    
     return (
         <Container>
             <CssBaseline />
