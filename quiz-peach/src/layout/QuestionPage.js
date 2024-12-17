@@ -11,6 +11,7 @@ const QustionPage = () => {
     const location = useLocation();
     const data = location.state ? location.state.data : null; // Retrieve the passed data
     const [questionData, setQuestionData] = useState(null); // State to store the question data
+    const [similarQuestions, setSimilarQuestions] = useState([]); // State for similar questions
     const questionId = (data && data.id) ? data.id : 1; // Example question ID, you can set this dynamically based on routing or context
     // Fetch question details from the API
     useEffect(() => {
@@ -26,6 +27,19 @@ const QustionPage = () => {
 
         fetchQuestionDetails();
     }, [questionId]); // Dependency array ensures the effect runs only once when the component mounts
+
+    useEffect(() => {
+        const fetchSimilarQuestions = async () => {
+            try {
+                const response = await fetchData(`/question/${questionId}/similars`);
+                setSimilarQuestions(response);
+            } catch (error) {
+                console.error('Error fetching similar questions:', error);
+            }
+        };
+
+        fetchSimilarQuestions();
+    }, [questionId]);
 
     // If the data is not loaded, show a loading message
     if (!questionData) {
@@ -43,7 +57,7 @@ const QustionPage = () => {
                             level={questionData.level} answerCount={questionData.answer_count}
                             correctAnswerCount={questionData.correct_answer_count}
                         ></SummaryBox>
-                        <Similars title="از همین طراح">
+                        <Similars title="از همین طراح" rows={similarQuestions}>
                             <Typography>Here are similar questions.</Typography>
                         </Similars>
                     </Stack>
