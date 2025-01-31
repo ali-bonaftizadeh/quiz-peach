@@ -1,11 +1,12 @@
 import { Box, Container, CssBaseline, Grid2, Typography, Stack, TextField, Button } from '@mui/material';
 import BasicTable from '../components/Table';
 import { useEffect, useState } from 'react';
-import { fetchData } from '../components/ApiService';
+import { fetchData, postData } from '../components/ApiService';
 
 const Ranking = () => {
     const [searchQuery, setSearchQuery] = useState(''); // For search input
     const [rankingData, setRankingData] = useState([]); // For storing user ranking data
+    const [followings, setFollowing] = useState([]); // For storing user ranking data
 
     // Function to fetch user rankings
     const fetchRankingData = async (query = '') => {
@@ -23,14 +24,64 @@ const Ranking = () => {
         }
     };
 
+        // Function to fetch user rankings
+        const fetchFollowingData = async () => {
+            try {
+                // Adjust the API endpoint based on your actual API
+                const response = await fetchData('/user/followed');
+                // Assuming API accepts search query
+                if (response && Array.isArray(response)) {
+                    console.log(response);
+                    setFollowing(response); // Update the state with the fetched data
+                } else {
+                    console.error('Invalid response format:', response);
+                }
+            } catch (error) {
+                console.error('Error fetching ranking data:', error);
+            }
+        };
+
     // Fetch ranking data on component mount or when the searchQuery changes
     useEffect(() => {
         fetchRankingData(searchQuery);
     }, [searchQuery]);
 
+    useEffect(() => {
+        fetchFollowingData();
+    }, []);
+
     const handleSearch = () => {
         fetchRankingData(searchQuery);  // Trigger search with the current query
     };
+
+    const handleFollow = async (username, event) => {
+        
+        try {
+            // Adjust the API endpoint based on your actual API
+            const isFollow = event.target.innerText == 'FOLLOW';
+            let response;
+            if (isFollow)
+                response = await postData('/user/follow/' + username);
+            else{
+                console.log('unfollowing the user ' + username);
+                response = await postData('/user/unfollow/' + username);
+            }
+
+            // Assuming API accepts search query
+            console.log(response)
+            if (response) {
+                if (isFollow)
+                    setFollowing = { ... username}
+                else
+                    setFollowing = followings.filter(item => item != username);
+
+            } else {
+                console.error('Invalid response format:', response);
+            }
+        } catch (error) {
+            console.error('Error fetching ranking data:', error);
+        }
+    }
 
     return (
         <Container>
@@ -68,6 +119,7 @@ const Ranking = () => {
                                     <Typography key={`rank-${user.rank}`}>{user.rank}</Typography>,
                                     <Typography key={`name-${user.id}`}>{user.name}</Typography>,
                                     <Typography key={`score-${user.id}`}>{user.score || 0}</Typography>,
+                                    <Button onClick={(e) => handleFollow(user.name, e)}>{followings.includes(user.name) ? 'UnFollow' : 'Follow'}</Button>
                                 ]
                             }))
                             }></BasicTable>

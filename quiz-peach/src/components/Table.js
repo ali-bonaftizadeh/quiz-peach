@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Card } from '@mui/material';
 
-export default function BasicTable({titles, rows}) {
+export default function BasicTable({key, titles, rows}) {
   return (
-    <TableContainer component={Card}>
+    <TableContainer key={key} component={Card}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
