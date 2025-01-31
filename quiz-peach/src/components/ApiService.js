@@ -2,12 +2,13 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true; // Set globally for all requests
 
-const API_BASE_URL = 'http://localhost:9090/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
 
 const apiClient = axios.create({
     baseURL: API_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem("token")
     },
 });
 

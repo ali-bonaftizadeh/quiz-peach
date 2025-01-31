@@ -42,6 +42,7 @@ const Login = () => {
     try {
       const { email, password } = formData;
       const response = await postData('/user/login', { email, password });
+      localStorage.setItem("token", response?.token);
       setMessage('ورود موفقیت‌آمیز'); // Login successful message
       routeChange("/");
     } catch (err) {
@@ -58,7 +59,7 @@ const Login = () => {
         return;
       }
 
-      const response = await postData('/user', { name, email, password });
+      const response = await postData('/user/register', { name, email, password });
       setMessage('ثبت‌نام با موفقیت انجام شد.');
     } catch (err) {
       setError('خطایی در ثبت‌نام رخ داد. لطفا از تکراری نبودن نام کاربری اطمینان حاصل کنید.');

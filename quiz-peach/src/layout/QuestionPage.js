@@ -53,9 +53,9 @@ const QustionPage = () => {
             <Grid2 container spacing={2}>
                 <Grid2 container size={{ sm: 12, md: 3 }}>
                     <Stack sx={{ width: '100%' }} spacing={2}>
-                        <SummaryBox title={questionData.name} category={questionData.Tag.name} 
-                            level={questionData.level} answerCount={questionData.answer_count}
-                            correctAnswerCount={questionData.correct_answer_count}
+                        <SummaryBox title={questionData.name} category={questionData.tagName} 
+                            level={questionData.level} answerCount={questionData.answerCount}
+                            correctAnswerCount={questionData.correctAnswerCount}
                         ></SummaryBox>
                         <Similars title="از همین طراح" rows={similarQuestions}>
                             <Typography>Here are similar questions.</Typography>
