@@ -21,6 +21,7 @@ const Home = () => {
     }
 
     const [questions, setQuestions] = useState([]);
+    const [feeds, setFeeds] = useState([]);
     const [filters, setFilters] = useState({
         level: '',
         answeredStatus: '',
@@ -40,6 +41,20 @@ const Home = () => {
         fetchQuestions();
     }, [filters]); // Dependency array ensures re-fetch when filters change
 
+
+    useEffect(() => {
+        const fetchFeeds = async () => {
+            try {
+                const data = await fetchData('/question/followed/questions');
+                setFeeds(data);
+            } catch (error) {
+                console.error('Failed to fetch feeds:', error);
+            }
+        };
+
+        fetchFeeds();
+    }, []); // Dependency array ensures re-fetch when filters change
+
     const handleFilterChange = (filterType, value) => {
         setFilters((prevFilters) => ({
             ...prevFilters,
@@ -47,11 +62,11 @@ const Home = () => {
         }));
     };
 
-    const formatRows = () => {
-        return questions.map((question) => ({
+    const formatRows = (rows) => {
+        return rows.map((question) => ({
             key: question.id,
             columns: [
-                <Typography 
+                <Typography
                     onClick={routeChange('/question', { id: question.id })}
                     sx={{ cursor: 'pointer' }}
                 >
@@ -64,7 +79,7 @@ const Home = () => {
             ],
         }));
     };
-    
+
     return (
         <Container>
             <CssBaseline />
@@ -99,7 +114,15 @@ const Home = () => {
 
                         <BasicTable
                             titles={['عنوان سوال', 'سختی', 'دسته‌بندی']}
-                            rows={formatRows()}
+                            rows={formatRows(questions)}
+                        />
+
+                        <Typography variant="h3" component="h2" align="right" gutterBottom sx={{ mt: 4, mb: 4 }}>
+                            فیــــد
+                        </Typography>
+                        <BasicTable
+                            titles={['عنوان سوال', 'سختی', 'دسته‌بندی']}
+                            rows={formatRows(feeds)}
                         />
                     </Stack>
                 </Grid2>
