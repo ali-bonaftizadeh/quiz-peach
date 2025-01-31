@@ -8,9 +8,19 @@ const apiClient = axios.create({
     baseURL: API_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem("token")
     },
 });
+
+apiClient.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem("token"); 
+        if (token) {
+            config.headers['Authorization'] = token;
+        }
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
 
 // Function for GET requests with query parameters
 export const fetchData = async (endpoint, queryParams = {}) => {

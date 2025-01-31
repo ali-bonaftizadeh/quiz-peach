@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Container, Typography, TextField, Button, Card } from '@mui/material';
 import ButtonsBox from '../components/ButtonsBox';
 import { postData } from '../components/ApiService';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Login = () => {
 
 
-  let navigate = useNavigate(); 
-  const routeChange = (path) => { 
+  let navigate = useNavigate();
+  const routeChange = (path) => {
     navigate(path);
   }
 
@@ -66,14 +67,30 @@ const Login = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await postData('/user/logout', {});
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+
+    localStorage.removeItem("token");
+    Cookies.remove("username");
+  };
+
+  useEffect(() => {
+    if (activeTab === 'logout') {
+      handleLogout();
+    }
+  }, [activeTab]);
   return (
     <Container>
       <Typography variant="h2" component="h2" align="center" gutterBottom sx={{ mt: 4, mb: 4 }}>
         {activeTab === 'login'
           ? 'ورود به حساب کاربری'
           : activeTab === 'signup'
-          ? 'ثبت‌نام'
-          : 'خروج از حساب کاربری'}
+            ? 'ثبت‌نام'
+            : 'خروج از حساب کاربری'}
       </Typography>
       <Card sx={{ textAlign: 'right', padding: 3 }}>
         {/* Dynamic Title */}
